@@ -1,6 +1,13 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using Api;
 
-app.MapGet("/", () => "Hello World!");
+Host.CreateDefaultBuilder(args)
+    .ConfigureWebHostDefaults(
+        webBuilder =>
+        {
+            webBuilder
+                .UseStartup<Startup>()
+                .UseWebRoot(Path.Combine(Directory.GetCurrentDirectory(), "client_dist"));
+        })
+    .Build()
+    .Run();
 
-app.Run();
