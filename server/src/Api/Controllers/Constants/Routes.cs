@@ -1,4 +1,4 @@
-﻿namespace Api.Controllers.Constants;
+﻿namespace BGS.Api.Controllers.Constants;
 
 internal static class Routes
 {

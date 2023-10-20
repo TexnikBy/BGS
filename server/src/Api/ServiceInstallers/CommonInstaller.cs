@@ -1,6 +1,6 @@
-﻿using Api.ServiceInstallers.Interfaces;
+﻿using BGS.Api.ServiceInstallers.Interfaces;
 
-namespace Api.ServiceInstallers;
+namespace BGS.Api.ServiceInstallers;
 
 internal class CommonInstaller : IServiceInstaller
 {

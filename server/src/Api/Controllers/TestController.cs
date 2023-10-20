@@ -1,7 +1,7 @@
-﻿using Api.Controllers.Attributes;
+﻿using BGS.Api.Controllers.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers;
+namespace BGS.Api.Controllers;
 
 [ApiRoute]
 [ApiController]

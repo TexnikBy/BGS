@@ -1,7 +1,7 @@
-﻿using Api.Middleware;
-using Api.ServiceInstallers.Extensions;
+﻿using BGS.Api.Middleware;
+using BGS.Api.ServiceInstallers.Extensions;
 
-namespace Api;
+namespace BGS.Api;
 
 public class Startup
 {
@@ -29,9 +29,9 @@ public class Startup
         else
         {
             app.UseHsts();
-            app.UseHttpsRedirection();
         }
 
+        app.UseHttpsRedirection();
         app.UseRouting();
         app.UseMiddleware<SpaMiddleware>();
         app.UseDefaultFiles();

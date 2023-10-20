@@ -1,4 +1,4 @@
-﻿namespace Api.ServiceInstallers.Interfaces;
+﻿namespace BGS.Api.ServiceInstallers.Interfaces;
 
 internal interface IServiceInstaller
 {

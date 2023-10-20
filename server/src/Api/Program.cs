@@ -1,4 +1,4 @@
-using Api;
+using BGS.Api;
 
 Host.CreateDefaultBuilder(args)
     .ConfigureWebHostDefaults(
@@ -10,4 +10,3 @@ Host.CreateDefaultBuilder(args)
         })
     .Build()
     .Run();
-

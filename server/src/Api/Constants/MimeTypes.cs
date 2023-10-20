@@ -1,4 +1,4 @@
-﻿namespace Api.Constants;
+﻿namespace BGS.Api.Constants;
 
 internal static class MimeTypes
 {

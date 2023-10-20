@@ -1,7 +1,7 @@
-﻿using Api.Controllers.Constants;
+﻿using BGS.Api.Controllers.Constants;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers.Attributes;
+namespace BGS.Api.Controllers.Attributes;
 
 internal class ApiRouteAttribute : RouteAttribute
 {
