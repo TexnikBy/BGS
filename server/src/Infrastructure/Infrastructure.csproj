@@ -5,4 +5,8 @@
         <RootNamespace>BGS.Infrastructure</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj" />
+    </ItemGroup>
+
 </Project>
