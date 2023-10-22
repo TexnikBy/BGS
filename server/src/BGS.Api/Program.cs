@@ -3,7 +3,7 @@ using BGS.Api.ServiceInstallers.Extensions;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
-    ContentRootPath = Path.Combine(Directory.GetCurrentDirectory(), "client_dist"),
+    WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "client_dist"),
     Args = args,
 });
 
