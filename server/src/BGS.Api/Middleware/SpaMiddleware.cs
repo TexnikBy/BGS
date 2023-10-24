@@ -37,8 +37,8 @@ internal class SpaMiddleware
 
     private static bool IsHtmlPageRequest(HttpRequest request) =>
         request.Method == HttpMethods.Get &&
-        request.Headers[AcceptHeaderName].Any(ContainHtmlMineType);
+        request.Headers[AcceptHeaderName].Any(ContainHtmlMimeType);
 
-    private static bool ContainHtmlMineType(string header) =>
+    private static bool ContainHtmlMimeType(string header) =>
         header.Contains(MimeTypes.Html, StringComparison.InvariantCulture);
 }
