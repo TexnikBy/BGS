@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>BGS.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BGS.Infrastructure\BGS.Infrastructure.csproj" />
+      <ProjectReference Include="..\BGS.UseCases\BGS.UseCases.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+{
+    "name": "bgs-client-app",
+    "version": "0.0.1",
+    "author": "TexnikBy",
+    "dependencies": {
+        "@types/node": "^16",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "react": "^18",
+        "react-dom": "^18",
+        "typescript": "^5"
+    },
+    "scripts": {
+        "start": "npm run start:dev",
+        "start:dev": "webpack serve --mode development --config webpack.dev.js --progress --profile",
+        "build": "npm run build:prod",
+        "build:prod": "npm run webpack -- --mode production --config webpack.prod.js --progress --profile",
+        "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
+    },
+    "devDependencies": {
+        "css-loader": "^6",
+        "html-webpack-plugin": "^5",
+        "style-loader": "^3",
+        "ts-loader": "^9",
+        "webpack": "^5",
+        "webpack-cli": "^5",
+        "webpack-dev-server": "^4",
+        "webpack-merge": "^5"
+    }
+}
