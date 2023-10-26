@@ -2,11 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>BGS.ApplicationCore</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\common\BGS.SharedKernel\BGS.SharedKernel.csproj" />
+      <PackageReference Include="Ardalis.Specification" Version="7.0.0" />
     </ItemGroup>
 
 </Project>
