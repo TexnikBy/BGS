@@ -5,4 +5,8 @@
         <RootNamespace>BGS.ApplicationCore</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\common\BGS.SharedKernel\BGS.SharedKernel.csproj" />
+    </ItemGroup>
+
 </Project>
