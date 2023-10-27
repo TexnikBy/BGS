@@ -1,11 +1,17 @@
 using BGS.Api.Middleware;
 using BGS.Api.ServiceInstallers.Extensions;
+using BGS.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
     WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "client_dist"),
     Args = args,
 });
+
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connection, b => b.MigrationsAssembly("BGS.Infrastructure")));
 
 builder.Services.InstallServicesInAssembly(builder.Configuration);
 

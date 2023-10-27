@@ -4,5 +4,5 @@ namespace BGS.ApplicationCore.Entities;
 
 public class User : BaseEntity
 {
-    private string Name { get; set; }
+    public string Name { get; set; }
 }
