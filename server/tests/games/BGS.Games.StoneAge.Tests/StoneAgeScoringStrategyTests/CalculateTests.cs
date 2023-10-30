@@ -16,7 +16,7 @@ public class CalculateTests
     }
 
     [Theory]
-    [MemberData(nameof(ScoringDataTestCases))]
+    [MemberData(nameof(ScoringDataWithExpectedResultTestCases))]
     public void ShouldCalculateCorrectly(JsonElement scoringData, int expectedResult)
     {
         var result = _sut.Calculate(scoringData);
@@ -24,7 +24,7 @@ public class CalculateTests
         result.Should().Be(expectedResult);
     }
 
-    public static IEnumerable<object[]> ScoringDataTestCases()
+    public static IEnumerable<object[]> ScoringDataWithExpectedResultTestCases()
     {
         yield return new object[] { GetStoneAgeScoringJsonElement(79, 0, 8, 2, 9, 6, 6, 4, 3, 7, 6, 3), 239 };
         yield return new object[] { GetStoneAgeScoringJsonElement(97, 9, 8, 1, 6, 1, 7, 3, 4, 7, 4, 1), 186 };
