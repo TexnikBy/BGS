@@ -1,7 +1,5 @@
 using BGS.Api.Middleware;
 using BGS.Api.ServiceInstallers.Extensions;
-using BGS.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
