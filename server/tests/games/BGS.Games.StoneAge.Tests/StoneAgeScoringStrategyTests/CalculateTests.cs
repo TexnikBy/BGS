@@ -19,8 +19,10 @@ public class CalculateTests
     [MemberData(nameof(ScoringDataWithExpectedResultTestCases))]
     public void ShouldCalculateCorrectly(JsonElement scoringData, int expectedResult)
     {
+        // Arrange & Act
         var result = _sut.Calculate(scoringData);
 
+        // Assert
         result.Should().Be(expectedResult);
     }
 
@@ -46,7 +48,7 @@ public class CalculateTests
         byte numberOfToolMakers,
         byte numberOfBuildings,
         byte numberOfHutBuilders,
-        byte numberOfShamens,
+        byte numberOfShamans,
         byte numberOfPeople,
         byte countOfFirstCollectionOfGreenCivilizationCards,
         byte? countOfSecondCollectionOfGreenCivilizationCards = null)
@@ -68,7 +70,7 @@ public class CalculateTests
                 NumberOfToolMakers = numberOfToolMakers,
                 NumberOfBuildings = numberOfBuildings,
                 NumberOfHutBuilders = numberOfHutBuilders,
-                NumberOfShamens = numberOfShamens,
+                NumberOfShamans = numberOfShamans,
                 NumberOfPeople = numberOfPeople,
                 CollectionOfGreenCivilizationCards = collectionOfGreenCivilizationCards,
             });

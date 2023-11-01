@@ -18,7 +18,7 @@ public record StoneAgeScoringModel
 
     public byte NumberOfHutBuilders { get; init; }
 
-    public byte NumberOfShamens { get; init; }
+    public byte NumberOfShamans { get; init; }
 
     public byte NumberOfPeople { get; init; }
 

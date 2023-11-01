@@ -14,7 +14,7 @@ internal class StoneAgeScoringStrategy : IGameScoringStrategy
                model.NumberOfFoodProduction * model.NumberOfFarmers +
                model.NumberOfTools * model.NumberOfToolMakers +
                model.NumberOfBuildings * model.NumberOfHutBuilders +
-               model.NumberOfPeople * model.NumberOfShamens +
+               model.NumberOfPeople * model.NumberOfShamans +
                model.CollectionOfGreenCivilizationCards.Select(count => count * count).Sum();
     }
 }
