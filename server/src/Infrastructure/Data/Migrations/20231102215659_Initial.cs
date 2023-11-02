@@ -31,8 +31,6 @@ namespace BGS.Infrastructure.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "game");
         }
     }
 }
