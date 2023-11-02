@@ -1,5 +1,7 @@
 using BGS.Api.Middleware;
 using BGS.Api.ServiceInstallers.Extensions;
+using BGS.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
@@ -31,4 +33,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-app.Run();
+await using var scope = app.Services.CreateAsyncScope();
+await scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.MigrateAsync();
+
+await app.RunAsync();
