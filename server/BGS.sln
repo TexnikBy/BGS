@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases", "src\UseCases\Us
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{36A959AD-077A-4FA0-8A0A-00CBD637B28D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGS.SharedKernel", "src\common\BGS.SharedKernel\BGS.SharedKernel.csproj", "{2F720281-748B-413D-BD60-86A35967EBB4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedKernel", "src\common\SharedKernel\SharedKernel.csproj", "{2F720281-748B-413D-BD60-86A35967EBB4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "games", "games", "{59897E53-97F6-42CF-BD88-467C2656989D}"
 EndProject
