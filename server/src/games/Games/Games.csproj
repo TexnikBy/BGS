@@ -2,11 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>BGS.Games.Shared</RootNamespace>
+        <RootNamespace>BGS.Games</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\BGS.Core\BGS.Core.csproj" />
+      <ProjectReference Include="..\Games.StoneAge\Games.StoneAge.csproj" />
     </ItemGroup>
 
 </Project>

@@ -12,8 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\BGS.Tests.Infrastructure\BGS.Tests.Infrastructure.csproj" />
-        <ProjectReference Include="..\..\..\src\games\BGS.Games.StoneAge\BGS.Games.StoneAge.csproj" />
+        <ProjectReference Include="..\..\Tests.Infrastructure\Tests.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\..\src\games\Games.StoneAge\Games.StoneAge.csproj" />
     </ItemGroup>
 
 </Project>
