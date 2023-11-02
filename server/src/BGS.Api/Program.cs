@@ -9,6 +9,9 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     Args = args,
 });
 
+builder.Configuration.AddJsonFile("appsettings.json", false, true);
+builder.Configuration.AddJsonFile("appsettings.Personal.json", true, true);
+
 builder.Services.InstallServicesInAssembly(builder.Configuration);
 
 var app = builder.Build();
