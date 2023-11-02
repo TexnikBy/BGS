@@ -24,16 +24,16 @@ public class DatabaseSetup
         }
 
         await using var transaction = await _context.Database.BeginTransactionAsync();
-        SetupInitialData();
+        await SetupInitialDataAsync();
         await _context.SaveChangesAsync();
         await transaction.CommitAsync();
     }
 
     private Task<bool> NoDataExistsAsync() => _context.Set<Game>().AnyAsync();
 
-    private void SetupInitialData()
+    private async Task SetupInitialDataAsync()
     {
-        _context.Set<Game>().Add(
+        await _context.Set<Game>().AddAsync(
             new Game
             {
                 Id = Guid.NewGuid(),
