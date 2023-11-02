@@ -6,8 +6,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\BGS.Core\BGS.Core.csproj" />
-      <ProjectReference Include="..\BGS.UseCases\BGS.UseCases.csproj" />
+      <ProjectReference Include="..\Core\Core.csproj" />
+      <ProjectReference Include="..\UseCases\UseCases.csproj" />
     </ItemGroup>
 
     <ItemGroup>
