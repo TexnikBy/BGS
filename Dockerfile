@@ -22,4 +22,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish-server /app/publish .
 COPY --from=publish-client /client/dist ./client_dist
-ENTRYPOINT ["dotnet", "BGS.Api.dll"]
+ENTRYPOINT ["dotnet", "Api.dll"]
