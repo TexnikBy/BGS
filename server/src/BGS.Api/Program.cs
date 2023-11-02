@@ -1,5 +1,7 @@
 using BGS.Api.Middleware;
 using BGS.Api.ServiceInstallers.Extensions;
+using BGS.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
@@ -10,6 +12,10 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 builder.Services.InstallServicesInAssembly(builder.Configuration);
 
 var app = builder.Build();
+
+await using var scope = app.Services.CreateAsyncScope();
+await scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.MigrateAsync();
+await app.RunAsync();
 
 if (app.Environment.IsDevelopment())
 {

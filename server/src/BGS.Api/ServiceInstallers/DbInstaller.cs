@@ -11,8 +11,6 @@ internal class DbInstaller : IServiceInstaller
         var connection = configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options
-                .UseNpgsql(connection, b => b.MigrationsAssembly("BGS.Infrastructure"))
-                .UseSnakeCaseNamingConvention());
+            options.UseNpgsql(connection).UseSnakeCaseNamingConvention());
     }
 }
