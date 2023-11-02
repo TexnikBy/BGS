@@ -23,7 +23,7 @@ internal class SpaMiddleware
         }
 
 
-        if (IsHtmlPageRequest(context.Request))
+        if (IsHtmlPageRequest(context.Request) && !IsSwaggerRequest(context.Request))
         {
             context.Request.Path = SpaDefaultPage;
             context.Response.Headers.Add(HeaderNames.XFrameOptions, "DENY");
@@ -41,4 +41,7 @@ internal class SpaMiddleware
 
     private static bool ContainHtmlMimeType(string header) =>
         header.Contains(MimeTypes.Html, StringComparison.InvariantCulture);
+
+    private static bool IsSwaggerRequest(HttpRequest request) =>
+        request.Path.StartsWithSegments("/swagger", StringComparison.InvariantCultureIgnoreCase);
 }
