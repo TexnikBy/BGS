@@ -13,9 +13,6 @@ builder.Services.InstallServicesInAssembly(builder.Configuration);
 
 var app = builder.Build();
 
-await using var scope = app.Services.CreateAsyncScope();
-await scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.MigrateAsync();
-
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -36,4 +33,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-app.Run();
+await using var scope = app.Services.CreateAsyncScope();
+await scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.MigrateAsync();
+
+await app.RunAsync();

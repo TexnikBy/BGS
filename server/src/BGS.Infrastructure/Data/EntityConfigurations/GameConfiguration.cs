@@ -10,6 +10,9 @@ public class GameConfiguration : IEntityTypeConfiguration<Game>
     {
         builder.HasKey(g => g.Id);
 
+        builder.HasIndex(g => g.Name)
+            .IsUnique();
+
         builder.Property(g => g.Name)
             .HasMaxLength(DataSchemaConstants.GameNameColumnLength)
             .IsRequired();

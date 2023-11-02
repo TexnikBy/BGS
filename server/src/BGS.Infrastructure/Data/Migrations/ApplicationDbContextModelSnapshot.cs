@@ -38,6 +38,10 @@ namespace BGS.Infrastructure.Data.Migrations
                     b.HasKey("Id")
                         .HasName("pk_game");
 
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasDatabaseName("ix_game_name");
+
                     b.ToTable("game", (string)null);
                 });
 #pragma warning restore 612, 618

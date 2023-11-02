@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BGS.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231102105927_Initial")]
+    [Migration("20231102191114_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,10 @@ namespace BGS.Infrastructure.Data.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_game");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasDatabaseName("ix_game_name");
 
                     b.ToTable("game", (string)null);
                 });

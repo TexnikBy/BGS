@@ -21,6 +21,12 @@ namespace BGS.Infrastructure.Data.Migrations
                 {
                     table.PrimaryKey("pk_game", x => x.id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "ix_game_name",
+                table: "game",
+                column: "name",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
