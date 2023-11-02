@@ -9,12 +9,12 @@ using MediatR;
 
 namespace BGS.UseCases.Games.CalculateScore;
 
-internal class CalculateScoreRequestHandler : IRequestHandler<CalculateScoreRequest, int>
+internal class CalculateScoreCommandHandler : IRequestHandler<CalculateScoreCommand, int>
 {
     private readonly IIndex<string, IGameScoringStrategy> _gameScoringStrategy;
     private readonly IRepository<Game> _gameRepository;
 
-    public CalculateScoreRequestHandler(
+    public CalculateScoreCommandHandler(
         IIndex<string, IGameScoringStrategy> gameScoringStrategy,
         IRepository<Game> gameRepository)
     {
@@ -22,11 +22,11 @@ internal class CalculateScoreRequestHandler : IRequestHandler<CalculateScoreRequ
         _gameRepository = gameRepository;
     }
 
-    public async Task<int> Handle(CalculateScoreRequest request, CancellationToken cancellationToken)
+    public async Task<int> Handle(CalculateScoreCommand command, CancellationToken cancellationToken)
     {
         var gameKey = await _gameRepository.SingleOrDefaultAsync(
-            new GameKeyByIdSpecification(request.GameId), cancellationToken);
+            new GameKeyByIdSpecification(command.GameId), cancellationToken);
 
-        return _gameScoringStrategy[gameKey].Calculate(request.GameData);
+        return _gameScoringStrategy[gameKey].Calculate(command.GameData);
     }
 }

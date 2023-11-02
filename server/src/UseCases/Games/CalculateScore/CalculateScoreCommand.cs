@@ -4,4 +4,4 @@ using MediatR;
 
 namespace BGS.UseCases.Games.CalculateScore;
 
-public record CalculateScoreRequest(Guid GameId, JsonElement GameData) : IRequest<int>;
+public record CalculateScoreCommand(Guid GameId, JsonElement GameData) : IRequest<int>;

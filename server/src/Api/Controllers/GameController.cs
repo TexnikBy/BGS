@@ -17,9 +17,9 @@ public class GameController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpGet(Routes.Game.CalculateScore)]
-    public Task<int> CalculateScore(CalculateScoreRequest request)
+    [HttpPost(Routes.Game.CalculateScore)]
+    public Task<int> CalculateScore(CalculateScoreCommand command)
     {
-        return _mediator.Send(request);
+        return _mediator.Send(command);
     }
 }
