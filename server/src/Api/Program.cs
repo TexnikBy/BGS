@@ -13,6 +13,8 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     Args = args,
 });
 
+builder.Configuration.AddEnvironmentVariables();
+
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
