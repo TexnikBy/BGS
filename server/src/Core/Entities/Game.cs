@@ -5,4 +5,6 @@ namespace BGS.ApplicationCore.Entities;
 public class Game : BaseEntity
 {
     public string Name { get; set; }
+
+    public string Key { get; set; }
 }

@@ -29,6 +29,10 @@ namespace BGS.Infrastructure.Data.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
+                    b.Property<string>("Key")
+                        .HasColumnType("text")
+                        .HasColumnName("key");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(65)
