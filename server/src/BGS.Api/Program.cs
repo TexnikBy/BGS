@@ -9,16 +9,12 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     Args = args,
 });
 
-builder.Configuration.AddJsonFile("appsettings.json", false, true);
-builder.Configuration.AddJsonFile("appsettings.Personal.json", true, true);
-
 builder.Services.InstallServicesInAssembly(builder.Configuration);
 
 var app = builder.Build();
 
 await using var scope = app.Services.CreateAsyncScope();
 await scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.MigrateAsync();
-await app.RunAsync();
 
 if (app.Environment.IsDevelopment())
 {
