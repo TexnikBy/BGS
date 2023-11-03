@@ -1,12 +1,26 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using BGS.Api.Middleware;
 using BGS.Api.ServiceInstallers.Extensions;
+using BGS.Games;
+using BGS.Infrastructure;
 using BGS.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
+using BGS.UseCases;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
     WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "client_dist"),
     Args = args,
+});
+
+builder.Configuration.AddEnvironmentVariables();
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new AutofacGamesModule());
+    containerBuilder.RegisterModule(new AutofacUseCasesModule());
+    containerBuilder.RegisterModule(new AutofacInfrastructureModule());
 });
 
 builder.Services.InstallServicesInAssembly(builder.Configuration);
@@ -36,7 +50,5 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-await using var scope = app.Services.CreateAsyncScope();
-await scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.MigrateAsync();
-
+await app.Services.GetService<DatabaseSetup>().SetupAsync();
 await app.RunAsync();

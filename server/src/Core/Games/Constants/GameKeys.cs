@@ -2,5 +2,5 @@
 
 public static class GameKeys
 {
-    public const string StoneAge = "stone-age";
+    public const string StoneAge = nameof(StoneAge);
 }

@@ -3,4 +3,9 @@
 internal static class Routes
 {
     public const string Api = "/api";
+    
+    public static class Game
+    {
+        public const string CalculateScore = "calculate-score";
+    }
 }
