@@ -1,6 +1,8 @@
 ﻿using BGS.Api.Controllers.Attributes;
 using BGS.Api.Controllers.Constants;
+using BGS.ApplicationCore.Entities;
 using BGS.UseCases.Games.CalculateScore;
+using BGS.UseCases.Games.CreateGame;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,5 +23,11 @@ public class GameController : ControllerBase
     public Task<int> CalculateScore(CalculateScoreCommand command)
     {
         return _mediator.Send(command);
+    }
+    
+    [HttpPost(Routes.Game.Create)]
+    public Task<Game> CreateGame(string gameName)
+    {
+        return _mediator.Send(new CreateGameCommand(gameName));
     }
 }

@@ -6,6 +6,7 @@ internal static class Routes
     
     public static class Game
     {
+        public const string Create = "create";
         public const string CalculateScore = "calculate-score";
     }
 }
