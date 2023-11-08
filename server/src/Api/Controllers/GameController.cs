@@ -3,6 +3,8 @@ using BGS.Api.Controllers.Constants;
 using BGS.ApplicationCore.Entities;
 using BGS.UseCases.Games.CalculateScore;
 using BGS.UseCases.Games.CreateGame;
+using BGS.UseCases.Games.GetAllGames;
+using BGS.UseCases.Games.GetGameById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,5 +31,17 @@ public class GameController : ControllerBase
     public Task<Game> CreateGame(string gameName)
     {
         return _mediator.Send(new CreateGameCommand(gameName));
+    }
+    
+    [HttpGet(Routes.Game.AllGames)]
+    public Task<IEnumerable<Game>> GetAllGames()
+    {
+        return _mediator.Send(new GetAllGamesQuery());
+    }
+    
+    [HttpGet(Routes.Game.GameById)]
+    public Task<Game> GetGameById(Guid gameId)
+    {
+        return _mediator.Send(new GetGameByIdQuery(gameId));
     }
 }
