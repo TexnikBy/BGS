@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Games.BattleForRokugan\Games.BattleForRokugan.csproj" />
       <ProjectReference Include="..\Games.StoneAge\Games.StoneAge.csproj" />
     </ItemGroup>
 

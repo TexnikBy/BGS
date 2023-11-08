@@ -33,12 +33,18 @@ public class DatabaseSetup
 
     private async Task SetupInitialDataAsync()
     {
-        await _context.Set<Game>().AddAsync(
+        await _context.Set<Game>().AddRangeAsync(
             new Game
             {
                 Id = Guid.NewGuid(),
                 Name = "Stone Age",
                 Key = GameKeys.StoneAge,
+            },
+            new Game
+            {
+                Id = Guid.NewGuid(),
+                Name = "Battle for Rokugan",
+                Key = GameKeys.BattleForRokugan,
             });
     }
 }
