@@ -2,11 +2,12 @@
 using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
 using BGS.SharedKernel;
+using BGS.UseCases.Common.Result;
 using MediatR;
 
 namespace BGS.UseCases.Games.CreateGame;
 
-public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Game>
+public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Result>
 {
     private readonly IRepository<Game> _gameRepository;
 
@@ -15,7 +16,7 @@ public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Game>
         _gameRepository = gameRepository;
     }
 
-    public async Task<Game> Handle(CreateGameCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CreateGameCommand request, CancellationToken cancellationToken)
     {
         var newGame = new Game
         {
@@ -23,6 +24,8 @@ public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Game>
             Key = request.GameName.Replace(" ", ""),
         };
         
-        return await _gameRepository.AddAsync(newGame, cancellationToken);
+        await _gameRepository.AddAsync(newGame, cancellationToken);
+
+        return await ResultBuilder.BuildSucceed();
     }
 }

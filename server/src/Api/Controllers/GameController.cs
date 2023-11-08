@@ -1,6 +1,7 @@
 ﻿using BGS.Api.Controllers.Attributes;
 using BGS.Api.Controllers.Constants;
 using BGS.ApplicationCore.Entities;
+using BGS.UseCases.Common.Result;
 using BGS.UseCases.Games.CalculateScore;
 using BGS.UseCases.Games.CreateGame;
 using BGS.UseCases.Games.GetAllGames;
@@ -28,7 +29,7 @@ public class GameController : ControllerBase
     }
     
     [HttpPost(Routes.Game.Create)]
-    public Task<Game> CreateGame(string gameName)
+    public Task<Result> CreateGame(string gameName)
     {
         return _mediator.Send(new CreateGameCommand(gameName));
     }
