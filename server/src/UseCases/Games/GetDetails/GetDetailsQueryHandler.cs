@@ -1,12 +1,14 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
+using BGS.ApplicationCore.Games.Specifications;
+using BGS.ApplicationCore.Models;
 using BGS.SharedKernel;
 using MediatR;
 
 namespace BGS.UseCases.Games.GetDetails;
 
-public class GetDetailsQueryHandler : IRequestHandler<GetDetailsQuery, Game>
+public class GetDetailsQueryHandler : IRequestHandler<GetDetailsQuery, GameDetailsResponse>
 {
     private readonly IRepository<Game> _gameRepository;
 
@@ -15,8 +17,8 @@ public class GetDetailsQueryHandler : IRequestHandler<GetDetailsQuery, Game>
         _gameRepository = gameRepository;
     }
 
-    public async Task<Game> Handle(GetDetailsQuery query, CancellationToken cancellationToken)
+    public Task<GameDetailsResponse> Handle(GetDetailsQuery query, CancellationToken cancellationToken)
     {
-        return await _gameRepository.GetByIdAsync(query.GameId, cancellationToken);
+        return _gameRepository.SingleOrDefaultAsync(new GameDetailsSpecification(query.GameId), cancellationToken);
     }
 }

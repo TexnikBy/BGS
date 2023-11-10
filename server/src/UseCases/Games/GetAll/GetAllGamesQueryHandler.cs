@@ -7,7 +7,7 @@ using MediatR;
 
 namespace BGS.UseCases.Games.GetAll;
 
-public class GetAllGamesQueryHandler : IRequestHandler<GetAllGamesQuery, IEnumerable<Game>>
+public class GetAllGamesQueryHandler : IRequestHandler<GetAllGamesQuery, List<Game>>
 {
     private readonly IRepository<Game> _gameRepository;
 
@@ -16,8 +16,8 @@ public class GetAllGamesQueryHandler : IRequestHandler<GetAllGamesQuery, IEnumer
         _gameRepository = gameRepository;
     }
 
-    public async Task<IEnumerable<Game>> Handle(GetAllGamesQuery query, CancellationToken cancellationToken)
+    public Task<List<Game>> Handle(GetAllGamesQuery query, CancellationToken cancellationToken)
     {
-        return await _gameRepository.ListAsync(cancellationToken);
+        return _gameRepository.ListAsync(cancellationToken);
     }
 }

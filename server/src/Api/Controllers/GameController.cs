@@ -1,6 +1,7 @@
 ﻿using BGS.Api.Controllers.Attributes;
 using BGS.Api.Controllers.Constants;
 using BGS.ApplicationCore.Entities;
+using BGS.ApplicationCore.Models;
 using BGS.SharedKernel.Results;
 using BGS.UseCases.Games.CalculateScore;
 using BGS.UseCases.Games.Create;
@@ -28,20 +29,20 @@ public class GameController : ControllerBase
         return _mediator.Send(command);
     }
     
-    [HttpPost(Routes.Game.Create)]
-    public Task<Result> Create(string gameName)
+    [HttpPost]
+    public Task<Result> Create(CreateGameCommand command)
     {
-        return _mediator.Send(new CreateGameCommand(gameName));
+        return _mediator.Send(command);
     }
     
-    [HttpGet(Routes.Game.AllGames)]
-    public Task<IEnumerable<Game>> GetAll()
+    [HttpGet]
+    public Task<List<Game>> GetAll()
     {
         return _mediator.Send(new GetAllGamesQuery());
     }
     
     [HttpGet(Routes.Game.Details)]
-    public Task<Game> GetDetails(Guid gameId)
+    public Task<GameDetailsResponse> GetDetails(Guid gameId)
     {
         return _mediator.Send(new GetDetailsQuery(gameId));
     }

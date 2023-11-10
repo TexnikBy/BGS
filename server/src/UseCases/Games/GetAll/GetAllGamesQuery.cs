@@ -4,4 +4,4 @@ using MediatR;
 
 namespace BGS.UseCases.Games.GetAll;
 
-public record GetAllGamesQuery : IRequest<IEnumerable<Game>>;
+public record GetAllGamesQuery : IRequest<List<Game>>;
