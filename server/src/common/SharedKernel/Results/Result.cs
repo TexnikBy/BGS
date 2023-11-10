@@ -1,4 +1,4 @@
-﻿namespace BGS.UseCases.Common.Result;
+﻿namespace BGS.SharedKernel.Results;
 
 public class Result
 {

@@ -1,11 +1,11 @@
 ﻿using BGS.Api.Controllers.Attributes;
 using BGS.Api.Controllers.Constants;
 using BGS.ApplicationCore.Entities;
-using BGS.UseCases.Common.Result;
+using BGS.SharedKernel.Results;
 using BGS.UseCases.Games.CalculateScore;
-using BGS.UseCases.Games.CreateGame;
-using BGS.UseCases.Games.GetAllGames;
-using BGS.UseCases.Games.GetGameById;
+using BGS.UseCases.Games.Create;
+using BGS.UseCases.Games.GetAll;
+using BGS.UseCases.Games.GetDetails;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,20 +29,20 @@ public class GameController : ControllerBase
     }
     
     [HttpPost(Routes.Game.Create)]
-    public Task<Result> CreateGame(string gameName)
+    public Task<Result> Create(string gameName)
     {
         return _mediator.Send(new CreateGameCommand(gameName));
     }
     
     [HttpGet(Routes.Game.AllGames)]
-    public Task<IEnumerable<Game>> GetAllGames()
+    public Task<IEnumerable<Game>> GetAll()
     {
         return _mediator.Send(new GetAllGamesQuery());
     }
     
-    [HttpGet(Routes.Game.GameById)]
-    public Task<Game> GetGameById(Guid gameId)
+    [HttpGet(Routes.Game.Details)]
+    public Task<Game> GetDetails(Guid gameId)
     {
-        return _mediator.Send(new GetGameByIdQuery(gameId));
+        return _mediator.Send(new GetDetailsQuery(gameId));
     }
 }

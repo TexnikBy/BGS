@@ -1,6 +1,6 @@
-﻿using BGS.UseCases.Common.Result;
+﻿using BGS.SharedKernel.Results;
 using MediatR;
 
-namespace BGS.UseCases.Games.CreateGame;
+namespace BGS.UseCases.Games.Create;
 
 public record CreateGameCommand(string GameName) : IRequest<Result>;

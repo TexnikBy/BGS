@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
 using BGS.SharedKernel;
-using BGS.UseCases.Common.Result;
+using BGS.SharedKernel.Results;
 using MediatR;
 
-namespace BGS.UseCases.Games.CreateGame;
+namespace BGS.UseCases.Games.Create;
 
 public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Result>
 {
@@ -16,16 +16,15 @@ public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Resul
         _gameRepository = gameRepository;
     }
 
-    public async Task<Result> Handle(CreateGameCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CreateGameCommand command, CancellationToken cancellationToken)
     {
         var newGame = new Game
         {
-            Name = request.GameName,
-            Key = request.GameName.Replace(" ", ""),
+            Name = command.GameName,
         };
         
         await _gameRepository.AddAsync(newGame, cancellationToken);
 
-        return await ResultBuilder.BuildSucceed();
+        return ResultBuilder.BuildSucceed();
     }
 }

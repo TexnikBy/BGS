@@ -5,7 +5,7 @@ using BGS.ApplicationCore.Entities;
 using BGS.SharedKernel;
 using MediatR;
 
-namespace BGS.UseCases.Games.GetAllGames;
+namespace BGS.UseCases.Games.GetAll;
 
 public class GetAllGamesQueryHandler : IRequestHandler<GetAllGamesQuery, IEnumerable<Game>>
 {
@@ -16,7 +16,7 @@ public class GetAllGamesQueryHandler : IRequestHandler<GetAllGamesQuery, IEnumer
         _gameRepository = gameRepository;
     }
 
-    public async Task<IEnumerable<Game>> Handle(GetAllGamesQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<Game>> Handle(GetAllGamesQuery query, CancellationToken cancellationToken)
     {
         return await _gameRepository.ListAsync(cancellationToken);
     }
