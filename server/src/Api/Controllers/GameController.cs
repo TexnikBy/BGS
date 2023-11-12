@@ -1,6 +1,6 @@
 ﻿using BGS.Api.Controllers.Attributes;
 using BGS.Api.Controllers.Constants;
-using BGS.ApplicationCore.Models;
+using BGS.ApplicationCore.Games.Models;
 using BGS.SharedKernel.Results;
 using BGS.UseCases.Games.CalculateScore;
 using BGS.UseCases.Games.Create;

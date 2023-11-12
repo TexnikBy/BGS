@@ -1,7 +1,7 @@
 ﻿using System;
 using Ardalis.Specification;
 using BGS.ApplicationCore.Entities;
-using BGS.ApplicationCore.Models;
+using BGS.ApplicationCore.Games.Models;
 
 namespace BGS.ApplicationCore.Games.Specifications;
 

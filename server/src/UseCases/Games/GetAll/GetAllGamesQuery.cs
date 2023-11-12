@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using BGS.ApplicationCore.Models;
+using BGS.ApplicationCore.Games.Models;
 using MediatR;
 
 namespace BGS.UseCases.Games.GetAll;
