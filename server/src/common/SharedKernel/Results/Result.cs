@@ -1,8 +1,15 @@
 ﻿namespace BGS.SharedKernel.Results;
 
-public class Result
+public record Result
 {
-    public bool IsSucceeded { get; init; }
+    public bool IsSucceeded { get; private init; }
 
-    public string Error { get; init; }
+    public IEnumerable<string> Errors { get; init; } = new List<string>();
+
+    protected Result(bool isSucceeded)
+    {
+        IsSucceeded = isSucceeded;
+    }
+
+    public static Result Success() => new(true);
 }

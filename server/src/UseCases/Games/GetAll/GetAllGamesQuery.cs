@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using BGS.ApplicationCore.Entities;
+using BGS.ApplicationCore.Models;
 using MediatR;
 
 namespace BGS.UseCases.Games.GetAll;
 
-public record GetAllGamesQuery : IRequest<List<Game>>;
+public record GetAllGamesQuery : IRequest<List<GameListItem>>;

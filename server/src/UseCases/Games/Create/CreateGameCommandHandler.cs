@@ -25,6 +25,6 @@ public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Resul
         
         await _gameRepository.AddAsync(newGame, cancellationToken);
 
-        return ResultBuilder.BuildSucceed();
+        return Result.Success();
     }
 }

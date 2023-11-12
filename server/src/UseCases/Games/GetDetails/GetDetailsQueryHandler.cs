@@ -8,7 +8,7 @@ using MediatR;
 
 namespace BGS.UseCases.Games.GetDetails;
 
-public class GetDetailsQueryHandler : IRequestHandler<GetDetailsQuery, GameDetailsResponse>
+public class GetDetailsQueryHandler : IRequestHandler<GetDetailsQuery, GameDetailsModel>
 {
     private readonly IRepository<Game> _gameRepository;
 
@@ -17,8 +17,8 @@ public class GetDetailsQueryHandler : IRequestHandler<GetDetailsQuery, GameDetai
         _gameRepository = gameRepository;
     }
 
-    public Task<GameDetailsResponse> Handle(GetDetailsQuery query, CancellationToken cancellationToken)
+    public Task<GameDetailsModel> Handle(GetDetailsQuery query, CancellationToken cancellationToken)
     {
-        return _gameRepository.SingleOrDefaultAsync(new GameDetailsSpecification(query.GameId), cancellationToken);
+        return _gameRepository.SingleOrDefaultAsync(new GameDetailsModelSpecification(query.GameId), cancellationToken);
     }
 }

@@ -1,6 +1,5 @@
 ﻿using BGS.Api.Controllers.Attributes;
 using BGS.Api.Controllers.Constants;
-using BGS.ApplicationCore.Entities;
 using BGS.ApplicationCore.Models;
 using BGS.SharedKernel.Results;
 using BGS.UseCases.Games.CalculateScore;
@@ -36,13 +35,13 @@ public class GameController : ControllerBase
     }
     
     [HttpGet]
-    public Task<List<Game>> GetAll()
+    public Task<List<GameListItem>> GetAll()
     {
         return _mediator.Send(new GetAllGamesQuery());
     }
     
     [HttpGet(Routes.Game.Details)]
-    public Task<GameDetailsResponse> GetDetails(Guid gameId)
+    public Task<GameDetailsModel> GetDetails(Guid gameId)
     {
         return _mediator.Send(new GetDetailsQuery(gameId));
     }
