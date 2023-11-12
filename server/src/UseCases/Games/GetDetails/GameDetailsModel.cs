@@ -1,3 +1,3 @@
-namespace BGS.ApplicationCore.Games.Models;
+namespace BGS.UseCases.Games.GetDetails;
 
 public record GameDetailsModel(string Name);

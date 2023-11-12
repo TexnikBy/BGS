@@ -1,9 +1,8 @@
 ﻿using System;
 using Ardalis.Specification;
 using BGS.ApplicationCore.Entities;
-using BGS.ApplicationCore.Games.Models;
 
-namespace BGS.ApplicationCore.Games.Specifications;
+namespace BGS.UseCases.Games.GetDetails;
 
 public sealed class GameDetailsModelSpecification : SingleResultSpecification<Game, GameDetailsModel>
 {

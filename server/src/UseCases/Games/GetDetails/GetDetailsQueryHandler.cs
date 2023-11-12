@@ -1,8 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
-using BGS.ApplicationCore.Games.Models;
-using BGS.ApplicationCore.Games.Specifications;
 using BGS.SharedKernel;
 using MediatR;
 

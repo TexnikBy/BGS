@@ -1,5 +1,5 @@
 ﻿using System;
 
-namespace BGS.ApplicationCore.Games.Models;
+namespace BGS.UseCases.Games.GetAll;
 
 public record GameListItem(Guid Id, string Name);
