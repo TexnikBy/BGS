@@ -26,10 +26,10 @@ internal class SpaMiddleware
         if (IsHtmlPageRequest(context.Request) && !IsSwaggerRequest(context.Request))
         {
             context.Request.Path = SpaDefaultPage;
-            context.Response.Headers.Add(HeaderNames.XFrameOptions, "DENY");
-            context.Response.Headers.Add(HeaderNames.CacheControl, "max-age=0, no-cache, no-store, must-revalidate");
-            context.Response.Headers.Add(HeaderNames.Pragma, "no-cache");
-            context.Response.Headers.Add(HeaderNames.Expires, "Wed, 12 Jan 1980 05:00:00 GMT");
+            context.Response.Headers.Append(HeaderNames.XFrameOptions, "DENY");
+            context.Response.Headers.Append(HeaderNames.CacheControl, "max-age=0, no-cache, no-store, must-revalidate");
+            context.Response.Headers.Append(HeaderNames.Pragma, "no-cache");
+            context.Response.Headers.Append(HeaderNames.Expires, "Wed, 12 Jan 1980 05:00:00 GMT");
         }
 
         return _next(context);
