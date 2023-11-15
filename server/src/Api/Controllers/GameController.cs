@@ -3,8 +3,10 @@ using BGS.Api.Controllers.Constants;
 using BGS.SharedKernel.Results;
 using BGS.UseCases.Games.CalculateScore;
 using BGS.UseCases.Games.Create;
+using BGS.UseCases.Games.Delete;
 using BGS.UseCases.Games.GetAll;
 using BGS.UseCases.Games.GetDetails;
+using BGS.UseCases.Games.Update;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,5 +45,18 @@ public class GameController : ControllerBase
     public Task<GameDetailsModel> GetDetails(Guid gameId)
     {
         return _mediator.Send(new GetDetailsQuery(gameId));
+    }
+    
+        
+    [HttpPut]
+    public Task<Result> UpdateGame(Guid gameId, UpdateGameModel model)
+    {
+        return _mediator.Send(new UpdateGameCommand(gameId, model));
+    }
+    
+    [HttpDelete]
+    public Task<Result> DeleteGame(Guid gameId)
+    {
+        return _mediator.Send(new DeleteGameCommand(gameId));
     }
 }

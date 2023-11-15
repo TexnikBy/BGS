@@ -11,4 +11,6 @@ public record Result<T> : Result
     }
 
     public static Result<T> Success(T data) => new(data, true);
+
+    public static Result<T> Fail(T data) => new(data, true);
 }
