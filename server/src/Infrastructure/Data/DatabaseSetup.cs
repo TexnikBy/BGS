@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
 using BGS.ApplicationCore.Games.Constants;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace BGS.Infrastructure.Data;
 
@@ -18,6 +19,7 @@ public class DatabaseSetup
     public async Task SetupAsync()
     {
         await _context.Database.MigrateAsync();
+        await ReloadTypes();
         if (await NoDataExistsAsync())
         {
             return;
@@ -29,10 +31,24 @@ public class DatabaseSetup
         await transaction.CommitAsync();
     }
 
+    private async Task ReloadTypes()
+    {
+        if (_context.Database.GetDbConnection() is NpgsqlConnection npgsqlConnection)
+        {
+            await npgsqlConnection.OpenAsync();
+            await npgsqlConnection.ReloadTypesAsync();
+        }
+    }
+
     private Task<bool> NoDataExistsAsync() => _context.Set<Game>().AnyAsync();
 
     private async Task SetupInitialDataAsync()
     {
+        await _context.Set<User>().AddAsync(new User
+        {
+            Id = Guid.NewGuid(),
+            Name = "Admin",
+        });
         await _context.Set<Game>().AddRangeAsync(
             new Game
             {

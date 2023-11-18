@@ -6,6 +6,7 @@ using BGS.UseCases.Games.Create;
 using BGS.UseCases.Games.GetAll;
 using BGS.UseCases.Games.GetDetails;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BGS.Api.Controllers;
@@ -27,6 +28,7 @@ public class GameController : ControllerBase
         return _mediator.Send(command);
     }
     
+    [Authorize]
     [HttpPost]
     public Task<Result> Create(CreateGameCommand command)
     {
