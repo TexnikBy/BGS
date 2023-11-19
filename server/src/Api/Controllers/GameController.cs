@@ -14,49 +14,23 @@ namespace BGS.Api.Controllers;
 
 [ApiRoute]
 [ApiController]
-public class GameController : ControllerBase
+public class GameController(IMediator mediator) : ControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public GameController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
-
     [HttpPost(Routes.Game.CalculateScore)]
-    public Task<int> CalculateScore(CalculateScoreCommand command)
-    {
-        return _mediator.Send(command);
-    }
-    
+    public Task<int> CalculateScore(CalculateScoreCommand command) => mediator.Send(command);
+
     [HttpPost]
-    public Task<Result> Create(CreateGameCommand command)
-    {
-        return _mediator.Send(command);
-    }
-    
+    public Task<Result> Create(CreateGameCommand command) => mediator.Send(command);
+
     [HttpGet]
-    public Task<List<GameListItem>> GetAll()
-    {
-        return _mediator.Send(new GetAllGamesQuery());
-    }
-    
+    public Task<List<GameListItem>> GetAll() => mediator.Send(new GetAllGamesQuery());
+
     [HttpGet(Routes.Game.Details)]
-    public Task<GameDetailsModel> GetDetails(Guid gameId)
-    {
-        return _mediator.Send(new GetDetailsQuery(gameId));
-    }
-    
-        
+    public Task<GameDetailsModel> GetDetails(Guid gameId) => mediator.Send(new GetDetailsQuery(gameId));
+
     [HttpPut]
-    public Task<Result> UpdateGame(Guid gameId, UpdateGameModel model)
-    {
-        return _mediator.Send(new UpdateGameCommand(gameId, model));
-    }
-    
+    public Task<Result> UpdateGame(UpdateGameModel model) => mediator.Send(new UpdateGameCommand(model));
+
     [HttpDelete]
-    public Task<Result> DeleteGame(Guid gameId)
-    {
-        return _mediator.Send(new DeleteGameCommand(gameId));
-    }
+    public Task<Result> DeleteGame(Guid gameId) => mediator.Send(new DeleteGameCommand(gameId));
 }

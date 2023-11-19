@@ -7,25 +7,18 @@ using MediatR;
 
 namespace BGS.UseCases.Games.Delete;
 
-public class DeleteGameCommandHandler : IRequestHandler<DeleteGameCommand, Result>
+public class DeleteGameCommandHandler(IRepository<Game> gameRepository) : IRequestHandler<DeleteGameCommand, Result>
 {
-    private readonly IRepository<Game> _gameRepository;
-
-    public DeleteGameCommandHandler(IRepository<Game> gameRepository)
+    public async Task<Result> Handle(DeleteGameCommand command, CancellationToken cancellationToken)
     {
-        _gameRepository = gameRepository;
-    }
-
-    public async Task<Result> Handle(DeleteGameCommand request, CancellationToken cancellationToken)
-    {
-        var game = await _gameRepository.GetByIdAsync(request.GameId, cancellationToken);
+        var game = await gameRepository.GetByIdAsync(command.GameId, cancellationToken);
 
         if (game is null)
         {
-            return Result.Fail($"Game with the id {request.GameId} isn't exists.");
+            return Result.Fail($"Game with the id {command.GameId} isn't exists.");
         }
         
-        await _gameRepository.DeleteAsync(game, cancellationToken);
+        await gameRepository.DeleteAsync(game, cancellationToken);
 
         return Result.Success();
     }

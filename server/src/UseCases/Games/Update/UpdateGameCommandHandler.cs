@@ -9,18 +9,11 @@ using MediatR;
 
 namespace BGS.UseCases.Games.Update;
 
-public class UpdateGameCommandHandler : IRequestHandler<UpdateGameCommand, Result>
+public class UpdateGameCommandHandler(IRepository<Game> gameRepository) : IRequestHandler<UpdateGameCommand, Result>
 {
-    private readonly IRepository<Game> _gameRepository;
-
-    public UpdateGameCommandHandler(IRepository<Game> gameRepository)
-    {
-        _gameRepository = gameRepository;
-    }
-
     public async Task<Result> Handle(UpdateGameCommand command, CancellationToken cancellationToken)
     {
-        var existingGames = await _gameRepository.ListAsync(cancellationToken);
+        var existingGames = await gameRepository.ListAsync(cancellationToken);
         var hasDuplication = existingGames.Any(item =>
             string.Equals(item.Name, command.Model.Name, StringComparison.InvariantCultureIgnoreCase));
 
@@ -29,10 +22,10 @@ public class UpdateGameCommandHandler : IRequestHandler<UpdateGameCommand, Resul
             return Result.Fail($"Game with the name {command.Model.Name} is already exists.");
         }
         
-        var game = await _gameRepository.GetByIdAsync(command.GameId, cancellationToken);
+        var game = await gameRepository.GetByIdAsync(command.Model.Id, cancellationToken);
         game.Name = command.Model.Name;
 
-        await _gameRepository.UpdateAsync(game, cancellationToken);
+        await gameRepository.UpdateAsync(game, cancellationToken);
 
         return Result.Success();
     }
