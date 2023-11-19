@@ -45,10 +45,7 @@ app.UseStaticFiles();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.MapControllers();
 
 await app.Services.GetService<DatabaseSetup>().SetupAsync();
 await app.RunAsync();
