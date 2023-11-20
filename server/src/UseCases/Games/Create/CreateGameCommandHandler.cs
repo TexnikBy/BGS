@@ -1,29 +1,31 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
+using BGS.ApplicationCore.Interfaces;
 using BGS.SharedKernel;
 using BGS.SharedKernel.Results;
 using MediatR;
 
 namespace BGS.UseCases.Games.Create;
 
-public class CreateGameCommandHandler : IRequestHandler<CreateGameCommand, Result>
+public class CreateGameCommandHandler(
+        IRepository<Game> gameRepository,
+        IGameNameDuplicationsChecker gameNameDuplicationsChecker)
+    : IRequestHandler<CreateGameCommand, Result>
 {
-    private readonly IRepository<Game> _gameRepository;
-
-    public CreateGameCommandHandler(IRepository<Game> gameRepository)
-    {
-        _gameRepository = gameRepository;
-    }
-
     public async Task<Result> Handle(CreateGameCommand command, CancellationToken cancellationToken)
     {
+        if (await gameNameDuplicationsChecker.Check(command.GameName, cancellationToken))
+        {
+            return Result<Result>.Error($"Game with the name {command.GameName} is already exists.");
+        }
+        
         var newGame = new Game
         {
             Name = command.GameName,
         };
         
-        await _gameRepository.AddAsync(newGame, cancellationToken);
+        await gameRepository.AddAsync(newGame, cancellationToken);
 
         return Result.Success();
     }
