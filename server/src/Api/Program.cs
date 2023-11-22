@@ -42,6 +42,9 @@ app.UseMiddleware<SpaMiddleware>();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
