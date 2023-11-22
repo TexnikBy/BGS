@@ -9,6 +9,15 @@ namespace BGS.Infrastructure.Identity;
 
 internal sealed class UserStore(IRepository<User> userRepository) : IUserPasswordStore<User>
 {
+    public Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken) =>
+        userRepository.FirstOrDefaultAsync(new UserByNameSpecification(normalizedUserName), cancellationToken);
+
+    public Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken) =>
+        Task.FromResult(user.PasswordHash);
+
+    public Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken) =>
+        Task.FromResult(!string.IsNullOrWhiteSpace(user.PasswordHash));
+
     public Task<string> GetUserIdAsync(User user, CancellationToken cancellationToken)
     {
         throw new System.NotImplementedException();
@@ -54,19 +63,10 @@ internal sealed class UserStore(IRepository<User> userRepository) : IUserPasswor
         throw new System.NotImplementedException();
     }
 
-    public Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken) =>
-        userRepository.FirstOrDefaultAsync(new UserByNameSpecification(normalizedUserName), cancellationToken);
-
     public Task SetPasswordHashAsync(User user, string passwordHash, CancellationToken cancellationToken)
     {
         throw new System.NotImplementedException();
     }
-
-    public Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken) =>
-        Task.FromResult(user.PasswordHash);
-
-    public Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken) =>
-        Task.FromResult(!string.IsNullOrWhiteSpace(user.PasswordHash));
 
     public void Dispose()
     {
