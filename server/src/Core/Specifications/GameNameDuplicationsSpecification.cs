@@ -1,7 +1,7 @@
 ﻿using Ardalis.Specification;
 using BGS.ApplicationCore.Entities;
 
-namespace BGS.ApplicationCore.Validators;
+namespace BGS.ApplicationCore.Specifications;
 
 public sealed class GameNameDuplicationsSpecification : SingleResultSpecification<Game, bool>
 {

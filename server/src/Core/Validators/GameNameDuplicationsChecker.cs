@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
 using BGS.ApplicationCore.Interfaces;
+using BGS.ApplicationCore.Specifications;
 using BGS.SharedKernel;
 
 namespace BGS.ApplicationCore.Validators;
