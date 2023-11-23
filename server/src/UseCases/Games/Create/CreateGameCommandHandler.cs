@@ -10,12 +10,12 @@ namespace BGS.UseCases.Games.Create;
 
 public class CreateGameCommandHandler(
         IRepository<Game> gameRepository,
-        IGameNameDuplicationsChecker gameNameDuplicationsChecker)
+        IGameDuplicationChecker gameDuplicationChecker)
     : IRequestHandler<CreateGameCommand, Result>
 {
     public async Task<Result> Handle(CreateGameCommand command, CancellationToken cancellationToken)
     {
-        if (await gameNameDuplicationsChecker.Check(command.GameName, cancellationToken))
+        if (await gameDuplicationChecker.Check(command.GameName))
         {
             return Result<Result>.Error($"Game with the name {command.GameName} is already exists.");
         }

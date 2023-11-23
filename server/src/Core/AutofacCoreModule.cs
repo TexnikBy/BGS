@@ -13,8 +13,8 @@ public class AutofacCoreModule : Module
     
     private static void RegisterValidators(ContainerBuilder builder)
     {
-        builder.RegisterType<GameNameDuplicationsChecker>()
-            .As<IGameNameDuplicationsChecker>()
+        builder.RegisterType<GameDuplicationChecker>()
+            .As<IGameDuplicationChecker>()
             .InstancePerLifetimeScope();
     }
 }
