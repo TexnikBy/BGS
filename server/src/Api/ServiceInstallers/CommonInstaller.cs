@@ -6,7 +6,8 @@ internal class CommonInstaller : IServiceInstaller
 {
     public void InstallServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddControllers();
         services.AddMvc();
+        services.AddOptions();
+        services.AddControllers();
     }
 }

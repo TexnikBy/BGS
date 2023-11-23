@@ -3,37 +3,46 @@ using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
 using BGS.ApplicationCore.Games.Constants;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace BGS.Infrastructure.Data;
 
-public class DatabaseSetup
+public class DatabaseSetup(ApplicationDbContext context)
 {
-    private readonly ApplicationDbContext _context;
-
-    public DatabaseSetup(ApplicationDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task SetupAsync()
     {
-        await _context.Database.MigrateAsync();
+        await context.Database.MigrateAsync();
+        await ReloadTypes();
         if (await NoDataExistsAsync())
         {
             return;
         }
 
-        await using var transaction = await _context.Database.BeginTransactionAsync();
+        await using var transaction = await context.Database.BeginTransactionAsync();
         await SetupInitialDataAsync();
-        await _context.SaveChangesAsync();
+        await context.SaveChangesAsync();
         await transaction.CommitAsync();
     }
 
-    private Task<bool> NoDataExistsAsync() => _context.Set<Game>().AnyAsync();
+    private async Task ReloadTypes()
+    {
+        if (context.Database.GetDbConnection() is NpgsqlConnection npgsqlConnection)
+        {
+            await npgsqlConnection.OpenAsync();
+            await npgsqlConnection.ReloadTypesAsync();
+        }
+    }
+
+    private Task<bool> NoDataExistsAsync() => context.Set<Game>().AnyAsync();
 
     private async Task SetupInitialDataAsync()
     {
-        await _context.Set<Game>().AddRangeAsync(
+        await context.Set<User>().AddAsync(new User
+        {
+            Id = Guid.NewGuid(),
+            Name = "Admin",
+        });
+        await context.Set<Game>().AddRangeAsync(
             new Game
             {
                 Id = Guid.NewGuid(),

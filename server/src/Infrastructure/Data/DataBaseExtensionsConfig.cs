@@ -7,5 +7,6 @@ internal static class DataBaseExtensionsConfig
     public static void Configure(ModelBuilder modelBuilder)
     {
         modelBuilder.HasPostgresExtension("uuid-ossp");
+        modelBuilder.HasPostgresExtension(PostgreSqlDataTypes.Citext);
     }
 }

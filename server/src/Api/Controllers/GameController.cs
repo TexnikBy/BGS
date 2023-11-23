@@ -8,6 +8,7 @@ using BGS.UseCases.Games.GetAll;
 using BGS.UseCases.Games.GetDetails;
 using BGS.UseCases.Games.Update;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BGS.Api.Controllers;
@@ -19,6 +20,7 @@ public class GameController(IMediator mediator) : ControllerBase
     [HttpPost(Routes.Game.CalculateScore)]
     public Task<int> CalculateScore(CalculateScoreCommand command) => mediator.Send(command);
 
+    [Authorize]
     [HttpPost]
     public Task<Result> Create(CreateGameCommand command) => mediator.Send(command);
 

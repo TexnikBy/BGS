@@ -9,4 +9,9 @@ internal static class Routes
         public const string CalculateScore = "calculate-score";
         public const string Details = "details/{gameId}";
     }
+    
+    public static class Identity
+    {
+        public const string Login = "login";
+    }
 }
