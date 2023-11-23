@@ -1,7 +1,7 @@
 ﻿using Autofac.Extras.Moq;
 using AutoFixture.Xunit2;
 using BGS.ApplicationCore.Entities;
-using BGS.ApplicationCore.Specifications;
+using BGS.ApplicationCore.Games.Specifications;
 using BGS.ApplicationCore.Validators;
 using BGS.SharedKernel;
 using FluentAssertions;
@@ -29,7 +29,7 @@ public class CheckTests
         CancellationToken cancellationToken = default;
 
         _gameRepositoryMock
-            .Setup(s => s.AnyAsync(It.IsAny<GameNameDuplicationsSpecification>(), cancellationToken))
+            .Setup(s => s.AnyAsync(It.IsAny<GameByNameSpecification>(), cancellationToken))
             .ReturnsAsync(true);
 
         // Act
@@ -46,7 +46,7 @@ public class CheckTests
         CancellationToken cancellationToken = default;
 
         _gameRepositoryMock
-            .Setup(s => s.AnyAsync(It.IsAny<GameNameDuplicationsSpecification>(), cancellationToken))
+            .Setup(s => s.AnyAsync(It.IsAny<GameByNameSpecification>(), cancellationToken))
             .ReturnsAsync(false);
 
         // Act
