@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace BGS.ApplicationCore.Interfaces;
+namespace BGS.ApplicationCore.Games.Interfaces;
 
 public interface IGameDuplicationChecker
 {

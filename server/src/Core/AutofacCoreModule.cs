@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using BGS.ApplicationCore.Interfaces;
-using BGS.ApplicationCore.Validators;
+using BGS.ApplicationCore.Games.Interfaces;
+using BGS.ApplicationCore.Games.Validators;
 
 namespace BGS.ApplicationCore;
 

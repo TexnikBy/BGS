@@ -2,7 +2,7 @@
 using AutoFixture.Xunit2;
 using BGS.ApplicationCore.Entities;
 using BGS.ApplicationCore.Games.Specifications;
-using BGS.ApplicationCore.Validators;
+using BGS.ApplicationCore.Games.Validators;
 using BGS.SharedKernel;
 using FluentAssertions;
 using Moq;

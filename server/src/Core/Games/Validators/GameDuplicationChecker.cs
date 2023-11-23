@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
+using BGS.ApplicationCore.Games.Interfaces;
 using BGS.ApplicationCore.Games.Specifications;
-using BGS.ApplicationCore.Interfaces;
 using BGS.SharedKernel;
 
-namespace BGS.ApplicationCore.Validators;
+namespace BGS.ApplicationCore.Games.Validators;
 
 public class GameDuplicationChecker(IRepository<Game> gameRepository) : IGameDuplicationChecker
 {
