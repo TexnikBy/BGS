@@ -15,6 +15,7 @@ public class GameConfiguration : IEntityTypeConfiguration<Game>
 
         builder.Property(g => g.Name)
             .HasMaxLength(DataSchemaConstants.GameNameColumnLength)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType(PostgreSqlDataTypes.Citext);
     }
 }

@@ -10,7 +10,12 @@ public record Result<T> : Result
         Data = data;
     }
 
+    private Result(bool isSucceeded, IEnumerable<string> errors)
+        : base(isSucceeded, errors)
+    {
+    }
+
     public static Result<T> Success(T data) => new(data, true);
-    
-    public static Result<T> Error(params string[] errorMessages) => new(default, false) { Errors = errorMessages };
+
+    public new static Result<T> Error(params string[] errorMessages) => new (false, errorMessages);
 }
