@@ -7,6 +7,6 @@ public sealed class GameByNameSpecification : SingleResultSpecification<Game, bo
 {
     public GameByNameSpecification(string gameName)
     {
-        Query.Where(game => string.Equals(game.Name.ToUpper(), gameName.ToUpper()));
+        Query.Where(game => string.Equals(game.Name, gameName));
     }
 }
