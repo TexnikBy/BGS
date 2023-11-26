@@ -3,7 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using BGS.Api.Middleware;
 using BGS.Api.ServiceInstallers.Extensions;
 using BGS.ApplicationCore;
-using BGS.Games;
+using BGS.Games.Shared;
 using BGS.Infrastructure;
 using BGS.Infrastructure.Data;
 using BGS.UseCases;
@@ -22,7 +22,6 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     containerBuilder.RegisterModule(new AutofacGamesModule());
     containerBuilder.RegisterModule(new AutofacUseCasesModule());
     containerBuilder.RegisterModule(new AutofacInfrastructureModule());
-    containerBuilder.RegisterModule(new AutofacCoreModule());
 });
 
 builder.Services.InstallServicesInAssembly(builder.Configuration);

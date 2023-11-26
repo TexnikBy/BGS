@@ -6,8 +6,10 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ./server/ .
-RUN dotnet restore src/Api/Api.csproj
-RUN dotnet build "src/Api/Api.csproj" -c Release -o /app/build
+RUN dotnet restore BGS.Games.sln
+RUN dotnet build BGS.Games.sln -c Release
+RUN dotnet restore BGS.sln
+RUN dotnet build BGS.sln -c Release
 
 FROM build AS publish-server
 RUN dotnet publish "src/Api/Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
@@ -21,5 +23,6 @@ RUN npm run build
 FROM base AS final
 WORKDIR /app
 COPY --from=publish-server /app/publish .
+COPY --from=publish-server /src/output .
 COPY --from=publish-client /client/dist ./client_dist
 ENTRYPOINT ["dotnet", "Api.dll"]
