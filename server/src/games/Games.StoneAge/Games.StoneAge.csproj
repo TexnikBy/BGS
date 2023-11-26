@@ -7,7 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Games.Shared\Games.Shared.csproj" />
+      <ProjectReference Include="..\..\common\Games.Shared\Games.Shared.csproj" />
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <PropertyGroup>
+            <IsLinux Condition="'$(OS)' == 'Unix'">true</IsLinux>
+        </PropertyGroup>
+
+        <Exec Command="cp &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(SolutionDir)output&quot;" Condition="'$(IsLinux)' == 'true'" />
+        <Exec Command="xcopy /y &quot;$(TargetDir)$(TargetName).dll&quot; &quot;$(SolutionDir)/output&quot;" Condition="'$(IsLinux)' != 'true'" />
+    </Target>
 
 </Project>

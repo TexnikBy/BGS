@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using BGS.ApplicationCore.Entities;
-using BGS.ApplicationCore.Games.Constants;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
@@ -47,13 +46,13 @@ public class DatabaseSetup(ApplicationDbContext context)
             {
                 Id = Guid.NewGuid(),
                 Name = "Stone Age",
-                Key = GameKeys.StoneAge,
+                Key = "StoneAge",
             },
             new Game
             {
                 Id = Guid.NewGuid(),
                 Name = "Battle for Rokugan",
-                Key = GameKeys.BattleForRokugan,
+                Key = "BattleForRokugan",
             });
     }
 }

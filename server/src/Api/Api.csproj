@@ -8,17 +8,25 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\games\Games\Games.csproj" />
-      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
-      <ProjectReference Include="..\UseCases\UseCases.csproj" />
+        <ProjectReference Include="..\common\Games.Shared\Games.Shared.csproj"/>
+        <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
+        <ProjectReference Include="..\UseCases\UseCases.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      </PackageReference>
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <PropertyGroup>
+            <IsLinux Condition="'$(OS)' == 'Unix'">true</IsLinux>
+        </PropertyGroup>
+
+        <Exec Command="xcopy /y &quot;$(SolutionDir)Output\&quot; &quot;$(TargetDir)\&quot;" Condition="'$(IsLinux)' != 'true'"/>
+    </Target>
 
 </Project>
