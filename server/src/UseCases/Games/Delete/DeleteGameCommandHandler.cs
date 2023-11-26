@@ -11,14 +11,13 @@ public class DeleteGameCommandHandler(IRepository<Game> gameRepository) : IReque
 {
     public async Task<Result> Handle(DeleteGameCommand command, CancellationToken cancellationToken)
     {
-        var game = await gameRepository.GetByIdAsync(command.GameId, cancellationToken);
-
+        var game = await gameRepository.GetByIdAsync(command.GameId);
         if (game is null)
         {
             return Result<Result>.Error($"Game with the id {command.GameId} isn't exists.");
         }
         
-        await gameRepository.DeleteAsync(game, cancellationToken);
+        await gameRepository.DeleteAsync(game);
 
         return Result.Success();
     }
