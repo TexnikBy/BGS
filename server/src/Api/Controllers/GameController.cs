@@ -2,11 +2,9 @@
 using BGS.Api.Controllers.Constants;
 using BGS.SharedKernel.Results;
 using BGS.UseCases.Games.CalculateScore;
-using BGS.UseCases.Games.Create;
 using BGS.UseCases.Games.Delete;
 using BGS.UseCases.Games.GetAll;
-using BGS.UseCases.Games.GetDetails;
-using BGS.UseCases.Games.Update;
+using BGS.UseCases.Games.Save;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,19 +18,14 @@ public class GameController(IMediator mediator) : ControllerBase
     [HttpPost(Routes.Game.CalculateScore)]
     public Task<int> CalculateScore(CalculateScoreCommand command) => mediator.Send(command);
 
-    [Authorize]
-    [HttpPost]
-    public Task<Result> Create(CreateGameCommand command) => mediator.Send(command);
-
     [HttpGet]
     public Task<List<GameListItem>> GetAll() => mediator.Send(new GetAllGamesQuery());
 
-    [HttpGet(Routes.Game.Details)]
-    public Task<GameDetailsModel> GetDetails(Guid gameId) => mediator.Send(new GetDetailsQuery(gameId));
+    [Authorize]
+    [HttpPost]
+    public Task<Result> Save(SaveGameCommand command) => mediator.Send(command);
 
-    [HttpPut]
-    public Task<Result> UpdateGame(UpdateGameModel model) => mediator.Send(new UpdateGameCommand(model));
-
+    [Authorize]
     [HttpDelete]
     public Task<Result> DeleteGame(Guid gameId) => mediator.Send(new DeleteGameCommand(gameId));
 }

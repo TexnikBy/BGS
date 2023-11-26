@@ -2,7 +2,6 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BGS.Api.Middleware;
 using BGS.Api.ServiceInstallers.Extensions;
-using BGS.ApplicationCore;
 using BGS.Games.Shared;
 using BGS.Infrastructure;
 using BGS.Infrastructure.Data;

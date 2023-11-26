@@ -13,7 +13,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\src\games\Games.BattleForRokugan\Games.BattleForRokugan.csproj" />
-      <ProjectReference Include="..\..\Tests.BaseStructure\Tests.BaseStructure.csproj" />
+      <ProjectReference Include="..\..\Tests.Infrastructure\Tests.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
