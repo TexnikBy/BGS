@@ -1,5 +1,5 @@
 ﻿using System.Text.Json;
-using BGS.ApplicationCore.Games.Interfaces;
+using BGS.ApplicationCore.Games.CalculateScore;
 
 namespace BGS.Games.StoneAge;
 

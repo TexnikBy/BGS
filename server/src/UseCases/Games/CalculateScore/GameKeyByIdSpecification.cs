@@ -2,7 +2,7 @@
 using Ardalis.Specification;
 using BGS.ApplicationCore.Entities;
 
-namespace BGS.ApplicationCore.Games.Specifications;
+namespace BGS.UseCases.Games.CalculateScore;
 
 public sealed class GameKeyByIdSpecification : SingleResultSpecification<Game, string>
 {

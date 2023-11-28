@@ -1,6 +1,6 @@
 ﻿using System.Composition;
 using Autofac;
-using BGS.ApplicationCore.Games.Interfaces;
+using BGS.ApplicationCore.Games.CalculateScore;
 using BGS.Games.Shared.Interfaces;
 
 namespace BGS.Games.StoneAge;

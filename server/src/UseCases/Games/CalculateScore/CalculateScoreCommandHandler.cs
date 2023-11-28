@@ -2,31 +2,21 @@
 using System.Threading.Tasks;
 using Autofac.Features.Indexed;
 using BGS.ApplicationCore.Entities;
-using BGS.ApplicationCore.Games.Interfaces;
-using BGS.ApplicationCore.Games.Specifications;
+using BGS.ApplicationCore.Games.CalculateScore;
 using BGS.SharedKernel;
 using MediatR;
 
 namespace BGS.UseCases.Games.CalculateScore;
 
-internal class CalculateScoreCommandHandler : IRequestHandler<CalculateScoreCommand, int>
-{
-    private readonly IIndex<string, IGameScoringStrategy> _gameScoringStrategy;
-    private readonly IRepository<Game> _gameRepository;
-
-    public CalculateScoreCommandHandler(
+internal class CalculateScoreCommandHandler(
         IIndex<string, IGameScoringStrategy> gameScoringStrategy,
         IRepository<Game> gameRepository)
-    {
-        _gameScoringStrategy = gameScoringStrategy;
-        _gameRepository = gameRepository;
-    }
-
+    : IRequestHandler<CalculateScoreCommand, int>
+{
     public async Task<int> Handle(CalculateScoreCommand command, CancellationToken cancellationToken)
     {
-        var gameKey = await _gameRepository.SingleOrDefaultAsync(
-            new GameKeyByIdSpecification(command.GameId), cancellationToken);
+        var gameKey = await gameRepository.SingleOrDefaultAsync(new GameKeyByIdSpecification(command.GameId));
 
-        return _gameScoringStrategy[gameKey].Calculate(command.GameData);
+        return gameScoringStrategy[gameKey].Calculate(command.GameData);
     }
 }

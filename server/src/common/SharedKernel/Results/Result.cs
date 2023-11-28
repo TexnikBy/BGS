@@ -11,13 +11,7 @@ public record Result
         IsSucceeded = isSucceeded;
     }
 
-    protected Result(bool isSucceeded, IEnumerable<string> errors)
-    {
-        IsSucceeded = isSucceeded;
-        Errors = errors;
-    }
+    public static Result Success() => new (true);
 
-    public static Result Success() => new(true);
-
-    public static Result Error(params string[] errorMessages) => new (false, errorMessages);
+    public static Result Error(params string[] errorMessages) => new (false) { Errors = errorMessages };
 }

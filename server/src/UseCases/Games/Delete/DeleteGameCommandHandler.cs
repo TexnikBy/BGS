@@ -14,7 +14,7 @@ public class DeleteGameCommandHandler(IRepository<Game> gameRepository) : IReque
         var game = await gameRepository.GetByIdAsync(command.GameId);
         if (game is null)
         {
-            return Result<Result>.Error($"Game with the id {command.GameId} isn't exists.");
+            return Result.Error($"Game with the id {command.GameId} isn't exists.");
         }
         
         await gameRepository.DeleteAsync(game);

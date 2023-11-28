@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace BGS.ApplicationCore.Games.Interfaces;
+namespace BGS.ApplicationCore.Games.CalculateScore;
 
 public interface IGameScoringStrategy
 {
