@@ -1,6 +1,6 @@
 ﻿namespace BGS.Games.StoneAge;
 
-public record StoneAgeScoringModel
+internal record StoneAgeScoringModel
 {
     public short CurrentPoint { get; init; }
 

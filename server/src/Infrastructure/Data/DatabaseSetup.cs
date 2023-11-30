@@ -53,6 +53,13 @@ public class DatabaseSetup(ApplicationDbContext context)
                 Id = Guid.NewGuid(),
                 Name = "Battle for Rokugan",
                 Key = "BattleForRokugan",
-            });
+            },
+            new Game
+            {
+                Id = Guid.NewGuid(),
+                Name = "Tyrants of the Underdark",
+                Key = "TyrantsOfTheUnderdark",
+            }
+        );
     }
 }
