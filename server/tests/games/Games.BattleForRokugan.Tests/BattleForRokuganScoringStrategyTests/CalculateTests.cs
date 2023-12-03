@@ -8,12 +8,8 @@ namespace BGS.Games.BattleForRokugan.Tests.BattleForRokuganScoringStrategyTests;
 
 public class CalculateTests
 {
-    private readonly BattleForRokuganScoringStrategy _sut;
-
-    public CalculateTests()
-    {
-        _sut = AutoMock.GetLoose().Create<BattleForRokuganScoringStrategy>();
-    }
+    private readonly BattleForRokuganScoringStrategy _sut =
+        AutoMock.GetLoose().Create<BattleForRokuganScoringStrategy>();
 
     [Theory]
     [MemberData(nameof(ScoringDataWithExpectedResultTestCases))]
