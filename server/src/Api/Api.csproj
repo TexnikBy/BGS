@@ -21,12 +21,10 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
     </ItemGroup>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <PropertyGroup>
-            <IsLinux Condition="'$(OS)' == 'Unix'">true</IsLinux>
-        </PropertyGroup>
-
-        <Exec Command="xcopy /y &quot;$(SolutionDir)Output\&quot; &quot;$(TargetDir)\&quot;" Condition="'$(IsLinux)' != 'true'"/>
-    </Target>
+    <ItemGroup>
+        <Content Include="..\..\game-modules-output\*.dll">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 
 </Project>

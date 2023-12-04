@@ -23,6 +23,5 @@ RUN npm run build
 FROM base AS final
 WORKDIR /app
 COPY --from=publish-server /app/publish .
-COPY --from=publish-server /src/output .
 COPY --from=publish-client /client/dist ./client_dist
 ENTRYPOINT ["dotnet", "Api.dll"]
