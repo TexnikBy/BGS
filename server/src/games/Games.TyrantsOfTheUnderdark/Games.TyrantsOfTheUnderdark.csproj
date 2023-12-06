@@ -1,16 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <RootNamespace>BGS.Games.BattleForRokugan</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>BGS.Games.TyrantsOfTheUnderdark</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\common\Games.Shared\Games.Shared.csproj"/>
+      <ProjectReference Include="..\..\common\Games.Shared\Games.Shared.csproj" />
     </ItemGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="..\..\..\game-modules-output"/>
-    </Target>
+    </Target>  
 
 </Project>

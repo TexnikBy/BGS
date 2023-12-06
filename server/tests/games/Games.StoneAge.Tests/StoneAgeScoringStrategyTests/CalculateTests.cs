@@ -8,12 +8,7 @@ namespace BGS.Games.StoneAge.Tests.StoneAgeScoringStrategyTests;
 
 public class CalculateTests
 {
-    private readonly StoneAgeScoringStrategy _sut;
-
-    public CalculateTests()
-    {
-        _sut = AutoMock.GetLoose().Create<StoneAgeScoringStrategy>();
-    }
+    private readonly StoneAgeScoringStrategy _sut = AutoMock.GetLoose().Create<StoneAgeScoringStrategy>();
 
     [Theory]
     [MemberData(nameof(ScoringDataWithExpectedResultTestCases))]

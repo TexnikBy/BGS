@@ -31,7 +31,6 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-[Oo]utput/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -456,3 +455,6 @@ $RECYCLE.BIN/
 
 # local configs
 appsettings.*Development*.json
+
+# game modules dll output
+[Gg]ame-modules-output/
