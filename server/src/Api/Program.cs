@@ -20,7 +20,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     containerBuilder.RegisterModule(new AutofacGamesModule());
     containerBuilder.RegisterModule(new AutofacUseCasesModule());
-    containerBuilder.RegisterModule(new AutofacInfrastructureModule());
+    containerBuilder.RegisterModule(new AutofacInfrastructureModule(builder.Configuration));
 });
 
 builder.Services.InstallServicesInAssembly(builder.Configuration);
