@@ -23,10 +23,12 @@ public class GameController(IMediator mediator) : ControllerBase
     [HttpGet]
     public Task<List<GameListItem>> GetAll() => mediator.Send(new GetAllGamesQuery());
 
+    [Authorize]
     [HttpPost]
     public Task<Result> Create([FromForm] CreateGameModel model, IFormFile poster) =>
         mediator.Send(new CreateGameCommand(model, poster.ToFileModel()));
 
+    [Authorize]
     [HttpPut]
     public Task<Result> Update([FromForm] UpdateGameModel model, IFormFile poster) =>
         mediator.Send(new UpdateGameCommand(model, poster.ToFileModel()));
