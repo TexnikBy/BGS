@@ -9,11 +9,11 @@ internal class TyrantsOfTheUnderdarkScoringStrategy : IGameScoringStrategy
     {
         var model = scoringData.Deserialize<TyrantsOfTheUnderdarkScoringModel>();
 
-        return model.TrophyHall +
-            model.Deck +
-            model.InnerCircleDeck +
-            model.Tokens +
-            model.ControlSites +
-            model.TotalControlSites;
+        return model.ControlSitesScore +
+            model.TotalControlSitesScore * 2 +
+            model.TroopsTrophyHallScore +
+            model.DeckValueScore +
+            model.InnerCircleDeckValueScore +
+            model.VictoryPointTokensScore;
     }
 }

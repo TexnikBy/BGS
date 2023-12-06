@@ -14,7 +14,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\src\games\Games.TyrantsOfTheUnderdark\Games.TyrantsOfTheUnderdark.csproj" />
         <ProjectReference Include="..\..\Tests.Infrastructure\Tests.Infrastructure.csproj" />
-        <ProjectReference Include="..\..\..\src\games\Games.TyrantsOfTheUnderdark\Games.TyrantsOfTheUnderdark.csproj" />
     </ItemGroup>
 
 </Project>

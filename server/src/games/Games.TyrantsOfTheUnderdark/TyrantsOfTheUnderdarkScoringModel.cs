@@ -2,15 +2,15 @@
 
 internal record TyrantsOfTheUnderdarkScoringModel
 {
-    public byte TrophyHall { get; init; }
+    public byte ControlSitesScore { get; init; }
     
-    public byte Deck { get; init; }
+    public byte TotalControlSitesScore { get; init; }
     
-    public byte InnerCircleDeck { get; init; }
+    public byte TroopsTrophyHallScore { get; init; }
     
-    public byte Tokens { get; init; }
+    public byte DeckValueScore { get; init; }
     
-    public byte ControlSites { get; init; }
+    public byte InnerCircleDeckValueScore { get; init; }
     
-    public byte TotalControlSites { get; init; }
+    public byte VictoryPointTokensScore { get; init; }
 }

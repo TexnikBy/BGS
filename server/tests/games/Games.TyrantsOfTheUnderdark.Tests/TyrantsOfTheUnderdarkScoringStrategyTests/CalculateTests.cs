@@ -25,27 +25,29 @@ public class CalculateTests
     public static IEnumerable<object[]> ScoringDataWithExpectedResultTestCases()
     {
         yield return new object[] { GetTyrantsOfTheUnderdarkScoringJsonElement(0, 0, 0, 0, 0, 0), 0 };
-        yield return new object[] { GetTyrantsOfTheUnderdarkScoringJsonElement(1, 1, 1, 1, 1, 1), 6 };
-        yield return new object[] { GetTyrantsOfTheUnderdarkScoringJsonElement(10, 0, 11, 7, 9, 2), 39 };
+        yield return new object[] { GetTyrantsOfTheUnderdarkScoringJsonElement(39, 0, 22, 16, 3, 0), 80 };
+        yield return new object[] { GetTyrantsOfTheUnderdarkScoringJsonElement(22, 1, 19, 17, 5, 1), 66 };
+        yield return new object[] { GetTyrantsOfTheUnderdarkScoringJsonElement(22, 2, 14, 5, 0, 0), 45 };
+        yield return new object[] { GetTyrantsOfTheUnderdarkScoringJsonElement(26, 6, 23, 14, 13, 20), 108 };
     }
 
     private static JsonElement GetTyrantsOfTheUnderdarkScoringJsonElement(
-        byte trophyHall,
-        byte deck,
-        byte innerCircleDeck,
-        byte tokens,
-        byte controlSites,
-        byte totalControlSites)
+        byte controlSitesScore,
+        byte totalControlSitesScore,
+        byte troopsTrophyHallScore,
+        byte deckValueScore,
+        byte innerCircleDeckValueScore,
+        byte victoryPointTokensScore)
     {
         return JsonSerializer.SerializeToElement(
             new TyrantsOfTheUnderdarkScoringModel
             {
-                TrophyHall = trophyHall,
-                Deck = deck,
-                InnerCircleDeck = innerCircleDeck,
-                Tokens = tokens,
-                ControlSites = controlSites,
-                TotalControlSites = totalControlSites,
+                ControlSitesScore = controlSitesScore,
+                TotalControlSitesScore = totalControlSitesScore,
+                TroopsTrophyHallScore = troopsTrophyHallScore,
+                DeckValueScore = deckValueScore,
+                InnerCircleDeckValueScore = innerCircleDeckValueScore,
+                VictoryPointTokensScore = victoryPointTokensScore,
             });
     }
 }
