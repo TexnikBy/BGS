@@ -18,6 +18,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.TyrantsOfTheUnderdark
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.TyrantsOfTheUnderdark", "src\games\Games.TyrantsOfTheUnderdark\Games.TyrantsOfTheUnderdark.csproj", "{7079B334-2F95-4FCD-A596-21A8A0E5779E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.SevenWondersDuel", "src\games\Games.SevenWondersDuel\Games.SevenWondersDuel.csproj", "{08B5F72C-6AD2-466A-BD9E-536969963C70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.SevenWondersDuel.Tests", "tests\games\Games.SevenWondersDuel.Tests\Games.SevenWondersDuel.Tests.csproj", "{34842239-CA21-42D6-A596-823954A4F417}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,7 @@ Global
 		{01212C0E-05D4-4D72-AB5D-6045431F62DF} = {5530AA16-ACA5-48BB-A087-F9AF942D58B3}
 		{E8C1ACEF-5752-4329-93A6-D46D6E52CE33} = {60788583-F7EC-4FD3-B081-F13657683E03}
 		{72B6157A-5123-4C5B-91AF-C83E1A440D9D} = {5530AA16-ACA5-48BB-A087-F9AF942D58B3}
+		{34842239-CA21-42D6-A596-823954A4F417} = {5530AA16-ACA5-48BB-A087-F9AF942D58B3}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B854E473-96C4-4EC4-A6FC-E4DEB0FBABE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +63,13 @@ Global
 		{7079B334-2F95-4FCD-A596-21A8A0E5779E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7079B334-2F95-4FCD-A596-21A8A0E5779E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7079B334-2F95-4FCD-A596-21A8A0E5779E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08B5F72C-6AD2-466A-BD9E-536969963C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B5F72C-6AD2-466A-BD9E-536969963C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B5F72C-6AD2-466A-BD9E-536969963C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B5F72C-6AD2-466A-BD9E-536969963C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34842239-CA21-42D6-A596-823954A4F417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34842239-CA21-42D6-A596-823954A4F417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34842239-CA21-42D6-A596-823954A4F417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34842239-CA21-42D6-A596-823954A4F417}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
