@@ -59,6 +59,12 @@ public class DatabaseSetup(ApplicationDbContext context)
                 Id = Guid.NewGuid(),
                 Name = "Tyrants of the Underdark",
                 Key = "TyrantsOfTheUnderdark",
+            },
+            new Game
+            {
+                Id = Guid.NewGuid(),
+                Name = "7 Wonders Duel",
+                Key = "SevenWondersDuel",
             });
     }
 }
