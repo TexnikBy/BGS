@@ -2,11 +2,11 @@
 
 internal record ClankCatacombsScoringModel
 {
-    public bool isEscapedFromDepths { get; init; }
+    public bool IsEscapedFromDepths { get; init; }
 
     public byte ArtefactsScore { get; init; }
     
-    public byte AllTokensScore { get; init; }
+    public byte TokensScore { get; init; }
     
     public byte GoldCoinsScore { get; init; }
     

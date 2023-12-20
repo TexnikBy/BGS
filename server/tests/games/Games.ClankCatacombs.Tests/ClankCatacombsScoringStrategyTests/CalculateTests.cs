@@ -26,6 +26,7 @@ public class CalculateTests
     {
         yield return new object[] { GetClankCatacombsScoringJsonElement(true, 12, 45, 21, 8), 86 };
         yield return new object[] { GetClankCatacombsScoringJsonElement(true, 0, 0, 0, 0), 0 };
+        yield return new object[] { GetClankCatacombsScoringJsonElement(true, 0, 15, 8, 7), 0 };
         yield return new object[] { GetClankCatacombsScoringJsonElement(false, 12, 45, 21, 8), 0 };
         yield return new object[] { GetClankCatacombsScoringJsonElement(false, 0, 0, 0, 0), 0 };
     }
@@ -33,16 +34,16 @@ public class CalculateTests
     private static JsonElement GetClankCatacombsScoringJsonElement(
         bool isEscapedFromDepths,
         byte artefactsScore,
-        byte allTokensScore,
+        byte tokensScore,
         byte goldCoinsScore,
         byte deckValueScore)
     {
         return JsonSerializer.SerializeToElement(
             new ClankCatacombsScoringModel
             {
-                isEscapedFromDepths = isEscapedFromDepths,
+                IsEscapedFromDepths = isEscapedFromDepths,
                 ArtefactsScore = artefactsScore,
-                AllTokensScore = allTokensScore,
+                TokensScore = tokensScore,
                 GoldCoinsScore = goldCoinsScore,
                 DeckValueScore = deckValueScore,
             });

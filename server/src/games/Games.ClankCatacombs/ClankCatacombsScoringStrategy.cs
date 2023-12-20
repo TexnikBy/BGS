@@ -9,13 +9,18 @@ internal class ClankCatacombsScoringStrategy : IGameScoringStrategy
     {
         var model = scoringData.Deserialize<ClankCatacombsScoringModel>();
 
-        if (!model.isEscapedFromDepths)
+        if (!model.IsEscapedFromDepths)
+        {
+            return 0;
+        }
+        
+        if (model.ArtefactsScore == 0)
         {
             return 0;
         }
 
         return model.ArtefactsScore +
-            model.AllTokensScore +
+            model.TokensScore +
             model.GoldCoinsScore +
             model.DeckValueScore;
     }
