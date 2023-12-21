@@ -18,7 +18,14 @@ BGS - The application for scoring in a board game
     // You can generate a public and private signature key here - https://travistidwell.com/jsencrypt/demo/
     "PublicSigningKey": "",
     "PrivateSigningKey": ""
-  }
+  },
+  "FileStorageSettings": {
+    "StorageType": "System"
+  },
+  "SystemStorageSettings": {
+    // Customizing the path to the storage folder
+    "RootPath": "set-up-your-path"
+  },
 }
 ```
 
