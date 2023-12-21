@@ -7,6 +7,6 @@ public sealed class GameListItemSpecification : Specification<Game, GameListItem
 {
     public GameListItemSpecification()
     {
-        Query.Select(g => new GameListItem(g.Id, g.Name));
+        Query.Select(g => new GameListItem(g.Id, g.Name, g.PosterUrl));
     }
 }

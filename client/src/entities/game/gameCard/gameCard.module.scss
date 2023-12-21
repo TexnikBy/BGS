@@ -1,0 +1,60 @@
+﻿.root {
+    position: relative;
+    overflow: hidden;
+    min-width: 312px;
+    min-height: 205px;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .content {
+        position: absolute;
+        color: var(--color-black);
+        left: 16px;
+        right: 4px;
+        bottom: 24px;
+
+        > * {
+            margin-top: 4px;
+            background: white;
+        }
+
+        .gameName,
+        .countOfPlayers {
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Ultra', serif;
+            padding: 4px;
+            max-width: fit-content;
+        }
+
+        .countOfPlayers {
+            font-size: 8px;
+        }
+
+        .gameName {
+            font-size: 18px;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Ultra', serif;
+            padding: 4px 12px 4px 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.5) 60%,
+            rgba(0, 0, 0, 0.75) 95%);
+    }
+}

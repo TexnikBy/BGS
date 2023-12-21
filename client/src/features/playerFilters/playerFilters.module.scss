@@ -1,0 +1,26 @@
+﻿.root {
+    display: flex;
+    flex-wrap: nowrap;
+
+    & > * {
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-secondary-text);
+        background: white;
+        padding: 4px 8px;
+        white-space: nowrap;
+
+        &:not(:last-child) {
+            margin-right: 4px;
+        }
+
+        &[data-state='on'] {
+            color: var(--color-white);
+            background: black;
+            padding: 8px 16px;
+        }
+    }
+}

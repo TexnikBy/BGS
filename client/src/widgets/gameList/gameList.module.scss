@@ -1,0 +1,17 @@
+﻿.root {
+    .header {
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 12px;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .gameCard {
+        margin-bottom: 16px;
+    }
+}

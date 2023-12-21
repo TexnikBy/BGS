@@ -1,30 +1,39 @@
 {
     "name": "bgs-client-app",
+    "private": true,
     "version": "0.0.1",
     "author": "TexnikBy",
-    "dependencies": {
-        "@types/node": "^16",
-        "@types/react": "^18",
-        "@types/react-dom": "^18",
-        "react": "^18",
-        "react-dom": "^18",
-        "typescript": "^5"
-    },
+    "type": "module",
     "scripts": {
-        "start": "npm run start:dev",
-        "start:dev": "webpack serve --mode development --config webpack.dev.js --progress --profile",
-        "build": "npm run build:prod",
-        "build:prod": "npm run webpack -- --mode production --config webpack.prod.js --progress --profile",
-        "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
+        "dev": "vite --host",
+        "build": "tsc && vite build",
+        "lint": "eslint bgs-client-app --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@radix-ui/react-toggle-group": "^1.0.4",
+        "axios": "^1.6.2",
+        "normalize-scss": "^8.0.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "devDependencies": {
-        "css-loader": "^6",
-        "html-webpack-plugin": "^5",
-        "style-loader": "^3",
-        "ts-loader": "^9",
-        "webpack": "^5",
-        "webpack-cli": "^5",
-        "webpack-dev-server": "^4",
-        "webpack-merge": "^5"
+        "@types/css-modules": "^1.0.5",
+        "@types/node": "^20.10.4",
+        "@types/react": "^18.2.37",
+        "@types/react-dom": "^18.2.15",
+        "@typescript-eslint/eslint-plugin": "^6.10.0",
+        "@typescript-eslint/parser": "^6.10.0",
+        "@vitejs/plugin-react-swc": "^3.5.0",
+        "classnames": "^2.3.2",
+        "eslint": "^8.53.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.4",
+        "react-router-dom": "^6.20.1",
+        "sass": "^1.69.5",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8",
+        "vite-plugin-sass-glob-import": "^3.0.2",
+        "vite-plugin-svgr": "^4.2.0"
     }
 }

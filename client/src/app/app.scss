@@ -1,0 +1,33 @@
+﻿@import "styles/index";
+
+@import "../shared/**/*.scss";
+@import "../entities/**/*.scss";
+@import "../features/**/*.scss";
+@import "../widgets/**/*.scss";
+@import "../pages/**/*.scss";
+
+html {
+    box-sizing: border-box;
+    font-family: "Roboto Condensed", serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    > header, .page-layout, footer {
+        padding-left: 24px;
+        padding-right: 24px;
+
+        @media (min-width: 400px) {
+            padding-left: calc(50vw - 178px);
+            padding-right: calc(50vw - 178px);
+        }
+    }
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
