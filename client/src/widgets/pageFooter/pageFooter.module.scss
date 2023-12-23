@@ -3,7 +3,7 @@
     padding-bottom: 24px;
     margin-top: auto;
     background: black;
-    color: var(--color-white);
+    color: var(--color-primary);
 
     .designedBy {
         display: flex;
@@ -12,7 +12,7 @@
         font-weight: 400;
 
         a {
-            color: var(--color-white);
+            color: var(--color-primary);
             padding-left: 5px;
         }
     }

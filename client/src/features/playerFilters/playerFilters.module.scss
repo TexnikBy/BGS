@@ -8,19 +8,22 @@
         border-radius: 4px;
         font-size: 14px;
         font-weight: 700;
-        color: var(--color-secondary-text);
+        color: var(--color-gray-600);
         background: white;
-        padding: 4px 8px;
+        padding: 8px 16px;
         white-space: nowrap;
+
+        &[data-state='on'] {
+            color: var(--color-primary);
+            background: black;
+        }
+
+        &:first-child {
+            padding: 8px 16px;
+        }
 
         &:not(:last-child) {
             margin-right: 4px;
-        }
-
-        &[data-state='on'] {
-            color: var(--color-white);
-            background: black;
-            padding: 8px 16px;
         }
     }
 }
