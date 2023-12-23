@@ -1,12 +1,15 @@
 ﻿import styles from "./gameList.module.scss";
 import { GameCard } from "@entities/game";
 import { GameListItem } from "@shared/api";
+import { useTranslation } from "react-i18next";
 
 interface Props {
     games: Array<GameListItem>;
 }
 
 export const GameList = (props: Props) => {
+    const { t } = useTranslation("gameList");
+
     if (!props.games) {
         return <></>;
     }
@@ -14,7 +17,7 @@ export const GameList = (props: Props) => {
     return (
         <div className={styles.root}>
             <span className={styles.header}>
-                Results : {props.games.length}
+                {t("results")}: {props.games.length}
             </span>
             <div className={styles.content}>
                 {props.games.map((game, index) =>

@@ -13,9 +13,12 @@
     "dependencies": {
         "@radix-ui/react-toggle-group": "^1.0.4",
         "axios": "^1.6.2",
+        "i18next": "^23.7.11",
+        "i18next-resources-to-backend": "^1.2.0",
         "normalize-scss": "^8.0.0",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "react-i18next": "^14.0.0"
     },
     "devDependencies": {
         "@types/css-modules": "^1.0.5",
