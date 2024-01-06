@@ -1,0 +1,39 @@
+.button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: var(--color-black);
+    border: none;
+    border-radius: 4px;
+    padding: 0;
+
+    &__content {
+        color: var(--color-white);
+        width: 100%;
+    }
+
+    &:before {
+        top: 2px;
+        right: 2px;
+        border-bottom: 0.5px solid var(--color-white);
+        border-left: 0.5px solid var(--color-white);
+    }
+
+    &:after {
+        bottom: 2px;
+        left: 2px;
+        border-top: 0.5px solid var(--color-white);
+        border-right: 0.5px solid var(--color-white);
+    }
+
+    &:before,
+    &:after {
+        position: relative;
+        content: "";
+        display: block;
+        width: 100%;
+        max-width: 48px;
+        height: 48px;
+        transform: scale(0.5);
+    }
+}
