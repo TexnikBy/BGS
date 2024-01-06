@@ -8,8 +8,12 @@
     padding: 0;
 
     &__content {
-        color: var(--color-white);
         width: 100%;
+        color: var(--color-white);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 140%;
+        font-family: "Roboto Condensed", sans-serif;
     }
 
     &:before {
@@ -35,5 +39,22 @@
         max-width: 48px;
         height: 48px;
         transform: scale(0.5);
+    }
+}
+
+.button.button-link {
+    background: transparent;
+    width: max-content;
+
+    .button__content {
+        color: var(--color-black);
+        font-size: 14px;
+        line-height: 120%;
+        text-decoration-line: underline;
+    }
+
+    &:before,
+    &:after {
+        content: none;
     }
 }

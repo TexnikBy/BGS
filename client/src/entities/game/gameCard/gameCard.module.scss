@@ -2,7 +2,8 @@
     position: relative;
     overflow: hidden;
     min-width: 312px;
-    min-height: 205px;
+    max-width: 380px;
+    max-height: 205px;
 
     img {
         width: 100%;
@@ -12,7 +13,6 @@
 
     .content {
         position: absolute;
-        color: var(--color-secondary);
         left: 16px;
         right: 4px;
         bottom: 24px;
@@ -20,26 +20,11 @@
         > * {
             margin-top: 4px;
             background: white;
-        }
-
-        .gameName,
-        .countOfPlayers {
-            font-weight: 400;
-            text-transform: uppercase;
-            font-family: 'Ultra', serif;
             padding: 4px;
             max-width: fit-content;
         }
 
-        .countOfPlayers {
-            font-size: 8px;
-        }
-
         .gameName {
-            font-size: 18px;
-            font-weight: 400;
-            text-transform: uppercase;
-            font-family: 'Ultra', serif;
             padding: 4px 12px 4px 4px;
             white-space: nowrap;
             overflow: hidden;

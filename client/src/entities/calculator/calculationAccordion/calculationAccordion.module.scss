@@ -1,0 +1,101 @@
+.root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .accordionItem {
+        width: inherit;
+        display: inherit;
+        flex-direction: inherit;
+
+        .accordionHeader {
+            width: inherit;
+            display: inherit;
+            margin: 0;
+
+            .accordionTrigger {
+                width: inherit;
+                display: inherit;
+                border: none;
+                padding: 0;
+                background-color: transparent;
+
+                img {
+                    display: block;
+                    padding: 0 8px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+
+                .accordionTriggerContent {
+                    width: 100%;
+                    padding: 12px 32px 12px 12px;
+                    background: var(--color-gray-100);
+                    font-family: "Roboto Condensed", sans-serif;
+                    font-size: 20px;
+                    font-weight: 500;
+                    text-align: left;
+                    text-transform: none;
+
+                    background-repeat: no-repeat;
+                    background-position: right 10px center;
+                    background-image: url("/plusIcon.svg");
+                    background-size: 24px 24px;
+                }
+
+                &[data-state="open"] {
+                    img {
+                        filter: brightness(0.2);
+                    }
+
+                    .accordionTriggerContent {
+                        background-image: url("/minusIcon.svg");
+                    }
+                }
+            }
+
+        }
+
+        .accordionContent {
+            width: 100%;
+            height: 100%;
+            padding: 16px 0 16px 42px;
+            overflow: hidden;
+
+            &[data-state="open"] {
+                animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
+            }
+
+            &[data-state="closed"] {
+                animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
+            }
+
+            @keyframes slideDown {
+                from {
+                    height: 0;
+                    padding: 0 0 0 42px;
+                }
+                to {
+                    height: var(--radix-accordion-content-height);
+                    padding: 16px 0 16px 42px;
+                }
+            }
+
+            @keyframes slideUp {
+                from {
+                    height: var(--radix-accordion-content-height);
+                    padding: 16px 0 16px 42px;
+                }
+                to {
+                    height: 0;
+                    padding: 0 0 0 42px;
+                }
+            }
+
+            & > *:not(:last-child) {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
