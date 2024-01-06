@@ -1,19 +1,11 @@
 ﻿.input {
     height: 44px;
     border-radius: 4px;
-    font-size: 16px;
-    font-weight: 700;
     border: 1px solid var(--color-gray-100);
     background-color: var(--color-gray-100);
     padding: 0 8px;
     width: 100%;
     outline: none;
-
-    &::placeholder {
-        font-weight: 400;
-        color: var(--color-gray-500);
-        text-transform: capitalize;
-    }
 
     &:focus,
     &:focus-visible {
@@ -22,15 +14,25 @@
 }
 
 .search-input {
-    .input {
+    &.input {
         padding: 9px 4px 9px 40px;
         background-repeat: no-repeat;
         background-position: 10px center;
         background-image: url("/magnifyingGlass.svg");
-        background-size: 16px 16px;
+        background-size: 20px 20px;
 
         &::-webkit-search-cancel-button {
             filter: brightness(0);
+        }
+    }
+}
+
+.number-input {
+    &.input {
+        text-align: center;
+
+        &::placeholder {
+            font-weight: 700;
         }
     }
 }
