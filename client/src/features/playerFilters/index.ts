@@ -1,1 +1,1 @@
-﻿export * from "./playerFilters.tsx";
+﻿export { PlayerFilters } from "./playerFilters.tsx";
