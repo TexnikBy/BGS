@@ -11,4 +11,4 @@ export const PageLayout = (props: Props) => {
             {props.children}
         </div>
     );
-}
+};
