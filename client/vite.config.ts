@@ -10,7 +10,6 @@ export default defineConfig({
         alias: {
             "@": path.resolve(__dirname, "./src"),
             "@pages": path.resolve(__dirname, "./src/pages"),
-            "@games": path.resolve(__dirname, "./src/_games"),
             "@widgets": path.resolve(__dirname, "./src/widgets"),
             "@features": path.resolve(__dirname, "./src/features"),
             "@entities": path.resolve(__dirname, "./src/entities"),

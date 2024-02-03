@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json;
 using Autofac.Extras.Moq;
+using BGS.ApplicationCore.Games.CalculateScore;
 using FluentAssertions;
 using Xunit;
 
@@ -8,30 +9,33 @@ namespace BGS.Games.BattleForRokugan.Tests.BattleForRokuganScoringStrategyTests;
 
 public class CalculateTests
 {
-    private readonly BattleForRokuganScoringStrategy _sut =
-        AutoMock.GetLoose().Create<BattleForRokuganScoringStrategy>();
+    private readonly BattleForRokuganCalculator _sut =
+        AutoMock.GetLoose().Create<BattleForRokuganCalculator>();
 
     [Theory]
-    [MemberData(nameof(ScoringDataWithExpectedResultTestCases))]
-    public void ShouldCalculateCorrectly(JsonElement scoringData, int expectedResult)
+    [MemberData(nameof(GameDataWithExpectedResultTestCases))]
+    public void ShouldCalculateCorrectly(JsonElement gameData, int expectedResult)
     {
-        // Arrange & Act
-        var result = _sut.Calculate(scoringData);
+        // Arrange
+        var models = new PlayerCalculationModel[] { new () { GameData = gameData } };
+
+        // Act
+        var result = _sut.Calculate(models);
 
         // Assert
-        result.Should().Be(expectedResult);
+        result.Should().HaveCount(models.Length).And.OnlyContain(model => model.TotalScore == expectedResult);
     }
 
-    public static IEnumerable<object[]> ScoringDataWithExpectedResultTestCases()
+    public static IEnumerable<object[]> GameDataWithExpectedResultTestCases()
     {
-        yield return new object[] { GetBattleForRokuganScoringJsonElement(0, 0, 0, 0), 0 };
-        yield return new object[] { GetBattleForRokuganScoringJsonElement(0, 0, 6, 0), 6 };
-        yield return new object[] { GetBattleForRokuganScoringJsonElement(10, 3, 6, 0), 19 };
-        yield return new object[] { GetBattleForRokuganScoringJsonElement(8, 6, 0, 2), 24 };
-        yield return new object[] { GetBattleForRokuganScoringJsonElement(13, 9, 5, 3), 42 };
+        yield return [GetBattleForRokuganGameDataJsonElement(0, 0, 0, 0), 0];
+        yield return [GetBattleForRokuganGameDataJsonElement(0, 0, 6, 0), 6];
+        yield return [GetBattleForRokuganGameDataJsonElement(10, 3, 6, 0), 19];
+        yield return [GetBattleForRokuganGameDataJsonElement(8, 6, 0, 2), 24];
+        yield return [GetBattleForRokuganGameDataJsonElement(13, 9, 5, 3), 42];
     }
 
-    private static JsonElement GetBattleForRokuganScoringJsonElement(
+    private static JsonElement GetBattleForRokuganGameDataJsonElement(
         byte countOfProvincialFlowers,
         byte countOfFaceUpControlTokens,
         byte secretObjectivePoints,

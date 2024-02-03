@@ -1,15 +1,18 @@
-﻿import { PageHeader } from "@widgets/pageHeader/pageHeader.tsx";
+﻿import "./app.scss";
+import { PageHeader } from "@widgets/pageHeader/pageHeader.tsx";
 import { PageFooter } from "@widgets/pageFooter/pageFooter.tsx";
 import { Routing } from "@/pages";
-import "./app.scss";
+import { Suspense } from "react";
 
 function App() {
     return (
-        <div className="app">
-            <PageHeader />
-            <Routing />
-            <PageFooter />
-        </div>
+        <Suspense>
+            <div className="app">
+                <PageHeader />
+                <Routing />
+                <PageFooter />
+            </div>
+        </Suspense>
     );
 }
 

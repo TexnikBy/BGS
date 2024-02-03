@@ -1,8 +1,10 @@
 ﻿using BGS.Api.Controllers.Attributes;
 using BGS.Api.Controllers.Constants;
 using BGS.Api.Extensions;
+using BGS.ApplicationCore.Games.CalculateScore;
 using BGS.SharedKernel.Results;
 using BGS.UseCases.Games.CalculateScore;
+using BGS.UseCases.Games.CalculationDetails;
 using BGS.UseCases.Games.Create;
 using BGS.UseCases.Games.Delete;
 using BGS.UseCases.Games.GetAll;
@@ -18,10 +20,13 @@ namespace BGS.Api.Controllers;
 public class GameController(IMediator mediator) : ControllerBase
 {
     [HttpPost(Routes.Game.CalculateScore)]
-    public Task<int> CalculateScore(CalculateScoreCommand command) => mediator.Send(command);
+    public Task<IEnumerable<GameCalculationResultModel>> CalculateScore(CalculateScoreCommand command) => mediator.Send(command);
 
     [HttpGet]
     public Task<List<GameListItem>> GetAll() => mediator.Send(new GetAllGamesQuery());
+
+    [HttpGet(Routes.Game.CalculationDetails)]
+    public Task<CalculationDetailsResponse> GetCalculationDetails(int gameId) => mediator.Send(new CalculationDetailsRequest(gameId));
 
     [Authorize]
     [HttpPost]

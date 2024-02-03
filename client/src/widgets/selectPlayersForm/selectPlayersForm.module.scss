@@ -1,0 +1,26 @@
+.root {
+    > :not(:last-child) {
+        margin-bottom: 32px;
+    }
+
+    .playerInput {
+        max-height: 100px;
+    }
+
+    .addPlayerButton,
+    .submitButton {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .addPlayerButton {
+        height: 32px;
+        padding: 0 4px;
+        width: max-content;
+
+        span {
+            line-height: 140%;
+            text-decoration-line: none;
+        }
+    }
+}

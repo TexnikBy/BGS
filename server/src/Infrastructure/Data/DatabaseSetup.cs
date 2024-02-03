@@ -44,21 +44,18 @@ public class DatabaseSetup(ApplicationDbContext context)
         await context.Set<Game>().AddRangeAsync(
             new Game
             {
-                Id = Guid.NewGuid(),
                 Name = "Stone Age",
-                Key = "StoneAge",
+                Key = "stone-age",
             },
             new Game
             {
-                Id = Guid.NewGuid(),
                 Name = "Battle for Rokugan",
-                Key = "BattleForRokugan",
+                Key = "battle-for-rokugan",
             },
             new Game
             {
-                Id = Guid.NewGuid(),
                 Name = "Tyrants of the Underdark",
-                Key = "TyrantsOfTheUnderdark",
+                Key = "tyrants-of-the-underdark",
             });
     }
 }

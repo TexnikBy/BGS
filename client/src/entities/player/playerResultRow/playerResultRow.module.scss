@@ -1,0 +1,60 @@
+.root {
+    display: grid;
+    grid-template-columns: 90px auto max-content;
+    align-items: center;
+
+    .place {
+        height: 40px;
+    }
+
+    .firstPlace {
+        background-image: url("/goldCup.svg");
+    }
+
+    .secondPlace {
+        background-image: url("/silverCup.svg");
+    }
+
+    .thirdPlace {
+        background-image: url("/bronzeCup.svg");
+    }
+
+    .totalScore {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 140%;
+    }
+
+    .firstPlace,
+    .secondPlace,
+    .thirdPlace {
+        height: 50px;
+        color: var(--color-white);
+        background-repeat: no-repeat;
+        background-position: 50% 75%;
+    }
+
+    .place,
+    .firstPlace,
+    .secondPlace,
+    .thirdPlace {
+        margin-right: 40px;
+        display: inherit;
+        text-align: center;
+        align-items: center;
+        font-family: "Ultra", sans-serif;
+        font-size: 18px;
+        line-height: 140%;
+    }
+
+    &:has(.firstPlace, .secondPlace, .thirdPlace) {
+        :global {
+            .labeled-value {
+                &__value {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

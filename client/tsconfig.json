@@ -22,7 +22,6 @@
         "paths": {
             "@/*": ["./src/*"],
             "@pages/*": ["./src/pages/*"],
-            "@games/*": ["./src/_games/*"],
             "@widgets/*": ["./src/widgets/*"],
             "@features/*": ["./src/features/*"],
             "@entities/*": ["./src/entities/*"],

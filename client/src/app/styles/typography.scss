@@ -1,0 +1,83 @@
+:root {
+    --font-color: var(--color-black);
+}
+
+html,
+body {
+    color: var(--font-color);
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+button {
+    font-size: 14px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Ultra", sans-serif;
+    line-height: 140%;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 140%;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-size: 8px;
+    font-weight: 400;
+    font-family: "Ultra", sans-serif;
+    line-height: 140%;
+    text-transform: uppercase;
+}
+
+h2,
+h3,
+.h3,
+h4,
+h5 {
+    color: var(--font-color);
+    font-style: normal;
+}
+
+input {
+    color: var(--font-color);
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+
+    &::placeholder {
+        color: var(--color-gray-500);
+        font-family: "Roboto Condensed", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        text-transform: capitalize;
+    }
+}
+
+label {
+    color: var(--font-color);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+}

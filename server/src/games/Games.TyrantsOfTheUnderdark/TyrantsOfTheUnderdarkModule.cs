@@ -10,6 +10,6 @@ public class TyrantsOfTheUnderdarkModule : IGameModule
 {
     public void AddBoardGame(ContainerBuilder builder)
     {
-        builder.RegisterType<TyrantsOfTheUnderdarkScoringStrategy>().Keyed<IGameScoringStrategy>(nameof(TyrantsOfTheUnderdark));
+        builder.RegisterType<TyrantsOfTheUnderdarkScoringStrategy>().Keyed<IGameCalculator>("tyrants-of-the-underdark");
     }
 }

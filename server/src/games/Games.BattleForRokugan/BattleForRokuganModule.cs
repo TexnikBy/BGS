@@ -10,6 +10,6 @@ public class BattleForRokuganModule : IGameModule
 {
     public void AddBoardGame(ContainerBuilder builder)
     {
-        builder.RegisterType<BattleForRokuganScoringStrategy>().Keyed<IGameScoringStrategy>(nameof(BattleForRokugan));
+        builder.RegisterType<BattleForRokuganCalculator>().Keyed<IGameCalculator>("battle-for-rokugan");
     }
 }

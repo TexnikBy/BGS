@@ -1,5 +1,3 @@
-﻿using System;
+﻿namespace BGS.UseCases.Games.GetAll;
 
-namespace BGS.UseCases.Games.GetAll;
-
-public record GameListItem(Guid Id, string Name, string PosterUrl);
+public record GameListItem(int Id, string Key, string Name, string PosterUrl);

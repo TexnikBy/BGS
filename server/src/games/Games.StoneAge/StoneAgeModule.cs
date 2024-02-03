@@ -10,6 +10,6 @@ public class StoneAgeModule : IGameModule
 {
     public void AddBoardGame(ContainerBuilder builder)
     {
-        builder.RegisterType<StoneAgeScoringStrategy>().Keyed<IGameScoringStrategy>(nameof(StoneAge));
+        builder.RegisterType<StoneAgeCalculator>().Keyed<IGameCalculator>("stone-age");
     }
 }

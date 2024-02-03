@@ -1,19 +1,16 @@
-﻿using System.Text.Json;
-using BGS.ApplicationCore.Games.CalculateScore;
+﻿using BGS.Games.Shared;
 
 namespace BGS.Games.TyrantsOfTheUnderdark;
 
-internal class TyrantsOfTheUnderdarkScoringStrategy : IGameScoringStrategy
+internal class TyrantsOfTheUnderdarkScoringStrategy : BaseGameCalculator<TyrantsOfTheUnderdarkScoringModel>
 {
-    public int Calculate(JsonElement scoringData)
+    protected override int CalculateTotalScore(TyrantsOfTheUnderdarkScoringModel gameData)
     {
-        var model = scoringData.Deserialize<TyrantsOfTheUnderdarkScoringModel>();
-
-        return model.ControlSitesScore +
-            model.TotalControlSitesScore * 2 +
-            model.TroopsTrophyHallScore +
-            model.DeckValueScore +
-            model.InnerCircleDeckValueScore +
-            model.VictoryPointTokensScore;
+        return gameData.ControlSitesScore +
+               gameData.TotalControlSitesScore * 2 +
+               gameData.TroopsTrophyHallScore +
+               gameData.DeckValueScore +
+               gameData.InnerCircleDeckValueScore +
+               gameData.VictoryPointTokensScore;
     }
 }

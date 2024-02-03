@@ -1,0 +1,14 @@
+.root {
+    display: grid;
+    grid-template-rows: max-content max-content;
+
+    .header {
+        margin-bottom: 30px;
+    }
+
+    > form > button:last-child {
+        align-self: end;
+        margin-top: 32px;
+        margin-bottom: 40px;
+    }
+}

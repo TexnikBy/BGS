@@ -7,4 +7,6 @@ export { NumberFormField } from "./formFields/numberFormField.tsx";
 export { SearchFormField } from "./formFields/searchFormField.tsx";
 export { TextFormField } from "./formFields/textFormField.tsx";
 
+export { LabeledValue } from "./labeldValue/labeledValue.tsx";
+
 export { PageLayout } from "./pageLayouts/pageLayout.tsx";
