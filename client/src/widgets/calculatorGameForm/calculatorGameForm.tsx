@@ -2,8 +2,7 @@ import { useFieldArray, useForm } from "react-hook-form";
 import { CalculationAccordion } from "@entities/calculator";
 import {
     CalculationFormData,
-    CalculatorGameFormConfiguration,
-    GameSessionCalculationModel
+    CalculatorGameFormConfiguration
 } from "@widgets/calculatorGameForm/model";
 import { ReactElement } from "react";
 import {
@@ -12,6 +11,7 @@ import {
     CalculatorNumberFormField
 } from "@features/calculationFormFields";
 import { Button } from "@shared/ui";
+import { removeEmptyValues } from "./lib/removeEmptyValues.ts";
 
 interface Props<T> {
     gameId: number;
@@ -38,16 +38,10 @@ export function CalculatorGameForm<T>(props: Props<T>) {
         name: "models",
     });
 
-    const submitHandle = (data: CalculationFormData) => {
-        data.models.forEach((model: any) => {
-            for (let propName in model.gameData) {
-                if (model.gameData[propName] === ""){
-                    delete model.gameData[propName];
-                }
-            }
-        });
 
-        props.onFormSubmit(data);
+
+    const submitHandle = (data: CalculationFormData) => {
+        props.onFormSubmit(removeEmptyValues(data));
     }
 
     return (
