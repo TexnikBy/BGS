@@ -1,6 +1,10 @@
 import { useFieldArray, useForm } from "react-hook-form";
 import { CalculationAccordion } from "@entities/calculator";
-import { CalculationFormData, CalculatorGameFormConfiguration } from "@widgets/calculatorGameForm/model";
+import {
+    CalculationFormData,
+    CalculatorGameFormConfiguration,
+    GameSessionCalculationModel
+} from "@widgets/calculatorGameForm/model";
 import { ReactElement } from "react";
 import {
     BaseCalculatorFormFieldProps,
@@ -34,8 +38,20 @@ export function CalculatorGameForm<T>(props: Props<T>) {
         name: "models",
     });
 
+    const submitHandle = (data: CalculationFormData) => {
+        data.models.forEach((model: any) => {
+            for (let propName in model.gameData) {
+                if (model.gameData[propName] === ""){
+                    delete model.gameData[propName];
+                }
+            }
+        });
+
+        props.onFormSubmit(data);
+    }
+
     return (
-        <form onSubmit={handleSubmit(props.onFormSubmit)}>
+        <form onSubmit={handleSubmit(submitHandle)}>
             <CalculationAccordion items={props.config.fields.map((field) => ({
                 title: field.title,
                 children: fields.map((arrayField, index) => {
