@@ -4,6 +4,7 @@ import {
     TyrantsOfTheUnderdarkCalculatorConfig
 } from "./configs/tyrantsOfTheUnderdarkCalculatorConfig.ts";
 import { StoneAgeCalculatorConfig } from "@pages/gameCalculator/configs/stoneAgeCalculatorConfig.ts";
+import { BattleForRokuganCalculatorConfig } from "@pages/gameCalculator/configs/battleForRokuganCalculatorConfig.ts";
 
 const getPath = (gameKey: string) => `/games/:gameId-${gameKey}/calculator`;
 
@@ -14,7 +15,7 @@ export const GameCalculatorRouters: RouteObject[] = [
     },
     {
         path: getPath("battle-for-rokugan"),
-        element: <GameCalculatorPage config={TyrantsOfTheUnderdarkCalculatorConfig} />,
+        element: <GameCalculatorPage config={BattleForRokuganCalculatorConfig} />,
     },
     {
         path: getPath("tyrants-of-the-underdark"),
