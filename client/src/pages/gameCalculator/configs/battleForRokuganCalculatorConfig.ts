@@ -4,10 +4,11 @@ interface BattleForRokuganScoringModel {
     countOfProvincialFlowers: number;
     countOfFaceUpControlTokens: number;
     secretObjectivePoints: number;
-    countOfControlledTerritories: number;
+    countOfControlledRegions: number;
+    countOfControlledProvinces: number;
 }
 
-export const StoneAgeCalculatorConfig: CalculatorGameFormConfiguration<BattleForRokuganScoringModel> = {
+export const BattleForRokuganCalculatorConfig: CalculatorGameFormConfiguration<BattleForRokuganScoringModel> = {
     fields: [
         {
             title: "countOfProvincialFlowers",
@@ -25,8 +26,13 @@ export const StoneAgeCalculatorConfig: CalculatorGameFormConfiguration<BattleFor
             type: CalculatorFormFieldType.Number,
         },
         {
-            title: "countOfControlledTerritories",
-            nameOfField: "countOfControlledTerritories",
+            title: "countOfControlledRegions",
+            nameOfField: "countOfControlledRegions",
+            type: CalculatorFormFieldType.Number,
+        },
+        {
+            title: "countOfControlledProvinces",
+            nameOfField: "countOfControlledProvinces",
             type: CalculatorFormFieldType.Number,
         },
     ]
