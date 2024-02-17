@@ -20,9 +20,11 @@ export interface GameCalculationDetails {
 }
 
 export async function getGameCalculationDetails(id: number): Promise<GameCalculationDetails> {
-    return (await apiInstance.get(`${BASE_URL}/calculation-details/${id}`)).data;
+    const response = await apiInstance.get(`${BASE_URL}/calculation-details/${id}`);
+    return response.data;
 }
 
 export async function calculateScore(data: CalculationFormData): Promise<PlayerResultModel[]> {
-    return (await apiInstance.post(`${BASE_URL}/calculate-score`, data)).data;
+    const response = await apiInstance.post(`${BASE_URL}/calculate-score`, data);
+    return response.data;
 }

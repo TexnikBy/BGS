@@ -1,4 +1,7 @@
-﻿@import "/node_modules/normalize-scss/sass/normalize.scss";
+﻿@import "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Ultra&display=swap";
+
+@import "/node_modules/normalize-scss/sass/normalize.scss";
 @import "typography.scss";
 @import "variables.scss";
 @import "components.scss";
@@ -18,5 +21,5 @@ body,
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }

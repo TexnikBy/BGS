@@ -9,7 +9,7 @@ interface Props {
 export const GameHeaderInfo = (props: Props) => {
     return (
         <div className={classNames(styles.root, props.className)}>
-            <h2 className={styles.gameName}>{props.gameName}</h2>
+            <span className={styles.gameName}>{props.gameName}</span>
             <span>
                 2-6 players for this game
             </span>

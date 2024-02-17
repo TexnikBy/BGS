@@ -1,3 +1,53 @@
+.firstPlace {
+    border-bottom-color: #F0BE0C;
+
+    .place {
+        background-image: url("/goldCup.svg");
+    }
+}
+
+.secondPlace {
+    border-bottom-color: #BCB393;
+
+    .place {
+        background-image: url("/silverCup.svg");
+    }
+}
+
+.thirdPlace {
+    border-bottom-color: #B54B29;
+
+    .place {
+        background-image: url("/bronzeCup.svg");
+    }
+}
+
+.firstPlace,
+.secondPlace,
+.thirdPlace {
+    height: 50px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+
+    .place {
+        color: var(--color-white);
+        background-repeat: no-repeat;
+        background-position: 50% 75%;
+    }
+
+    :global {
+        .labeled-value {
+            &__value {
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.firstPlace,
+.secondPlace,
+.thirdPlace,
 .root {
     display: grid;
     grid-template-columns: 90px auto max-content;
@@ -5,39 +55,6 @@
 
     .place {
         height: 40px;
-    }
-
-    .firstPlace {
-        background-image: url("/goldCup.svg");
-    }
-
-    .secondPlace {
-        background-image: url("/silverCup.svg");
-    }
-
-    .thirdPlace {
-        background-image: url("/bronzeCup.svg");
-    }
-
-    .totalScore {
-        font-size: 20px;
-        font-weight: 700;
-        line-height: 140%;
-    }
-
-    .firstPlace,
-    .secondPlace,
-    .thirdPlace {
-        height: 50px;
-        color: var(--color-white);
-        background-repeat: no-repeat;
-        background-position: 50% 75%;
-    }
-
-    .place,
-    .firstPlace,
-    .secondPlace,
-    .thirdPlace {
         margin-right: 40px;
         display: inherit;
         text-align: center;
@@ -47,14 +64,9 @@
         line-height: 140%;
     }
 
-    &:has(.firstPlace, .secondPlace, .thirdPlace) {
-        :global {
-            .labeled-value {
-                &__value {
-                    font-size: 20px;
-                    font-weight: 500;
-                }
-            }
-        }
+    .totalScore {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 140%;
     }
 }

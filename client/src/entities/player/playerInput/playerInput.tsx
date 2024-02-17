@@ -11,8 +11,11 @@ export const PlayerInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     return (
         <div className={styles.root}>
             <div className={styles.content}>
-                <label>{`Player ${props.playerNumber}`}</label>
-                <Button className="button-link"
+                <span className={styles.playerNumber}>
+                    {`Player ${props.playerNumber}`}
+                </span>
+                <Button type="button"
+                        className="button button-link"
                         onClick={() => props.onDeleteClick(props.playerNumber)}>
                     Delete
                 </Button>

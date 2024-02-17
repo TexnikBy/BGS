@@ -8,7 +8,6 @@ import sassGlobImports from "vite-plugin-sass-glob-import";
 export default defineConfig({
     resolve: {
         alias: {
-            "@": path.resolve(__dirname, "./src"),
             "@pages": path.resolve(__dirname, "./src/pages"),
             "@widgets": path.resolve(__dirname, "./src/widgets"),
             "@features": path.resolve(__dirname, "./src/features"),

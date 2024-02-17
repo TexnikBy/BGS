@@ -1,3 +1,4 @@
+import styles from "./calculatorGameForm.module.scss";
 import { useFieldArray, useForm } from "react-hook-form";
 import { CalculationAccordion } from "@entities/calculator";
 import {
@@ -30,7 +31,9 @@ export function CalculatorGameForm<T>(props: Props<T>) {
     const { control, register, handleSubmit } = useForm<CalculationFormData>({
         values: {
             gameId: props.gameId,
-            models: props.players.map((playerName: string) => ({ playerName })),
+            models: props.players.map((playerName: string, index: number) => (
+                { playerNumber: index + 1, playerName }
+            )),
         },
     });
     const { fields } = useFieldArray<CalculationFormData>({
@@ -38,14 +41,12 @@ export function CalculatorGameForm<T>(props: Props<T>) {
         name: "models",
     });
 
-
-
     const submitHandle = (data: CalculationFormData) => {
         props.onFormSubmit(removeEmptyValues(data));
     }
 
     return (
-        <form onSubmit={handleSubmit(submitHandle)}>
+        <form className={styles.root} onSubmit={handleSubmit(submitHandle)}>
             <CalculationAccordion items={props.config.fields.map((field) => ({
                 title: field.title,
                 children: fields.map((arrayField, index) => {

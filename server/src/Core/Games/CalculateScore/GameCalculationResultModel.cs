@@ -2,6 +2,8 @@
 
 public record GameCalculationResultModel
 {
+    public int Place { get; init; }
+
     public byte PlayerNumber { get; init; }
 
     public string PlayerName { get; init; }

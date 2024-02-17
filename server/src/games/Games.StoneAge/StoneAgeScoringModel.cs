@@ -1,6 +1,8 @@
-﻿namespace BGS.Games.StoneAge;
+﻿using BGS.Games.Shared.Interfaces;
 
-public record StoneAgeScoringModel
+namespace BGS.Games.StoneAge;
+
+public record StoneAgeScoringModel : IGameScoringModel<StoneAgeScoringModel>
 {
     public short CurrentPoint { get; init; }
 
@@ -22,5 +24,27 @@ public record StoneAgeScoringModel
 
     public byte NumberOfPeople { get; init; }
 
-    public List<byte> CollectionOfGreenCivilizationCards { get; init; }
+    public List<byte> CollectionOfGreenCivilizationCards { get; init; } = [];
+
+    public int TotalScore => CurrentPoint +
+                             CountOfResources +
+                             NumberOfFoodProduction * NumberOfFarmers +
+                             NumberOfTools * NumberOfToolMakers +
+                             NumberOfBuildings * NumberOfHutBuilders +
+                             NumberOfPeople * NumberOfShamans +
+                             CollectionOfGreenCivilizationCards.Select(count => count * count).Sum();
+
+    private int VillageDevelopment => NumberOfTools +
+                                      NumberOfPeople +
+                                      NumberOfFoodProduction;
+
+    public int CompareTo(StoneAgeScoringModel other)
+    {
+        if (TotalScore == other.TotalScore)
+        {
+            return VillageDevelopment - other.VillageDevelopment;
+        }
+
+        return TotalScore - other.TotalScore;
+    }
 }

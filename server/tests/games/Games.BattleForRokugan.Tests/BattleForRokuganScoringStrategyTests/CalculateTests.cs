@@ -47,7 +47,7 @@ public class CalculateTests
                 CountOfProvincialFlowers = countOfProvincialFlowers,
                 CountOfFaceUpControlTokens = countOfFaceUpControlTokens,
                 SecretObjectivePoints = secretObjectivePoints,
-                CountOfControlledTerritories = countOfControlledTerritories,
+                CountOfControlledRegions = countOfControlledTerritories,
             });
     }
 }

@@ -2,32 +2,32 @@ import styles from "./playerResultRow.module.scss";
 import { LabeledValue } from "@shared/ui";
 
 interface Props {
-    index: number;
+    place: number;
     playerNumber: number;
     playerName: string;
     totalScore: number;
 }
 
 export const PlayerResultRow = (props: Props) => {
-    const getPlaceStyle = () => {
-        if (props.index === 0) {
+    const getRootStyle = () => {
+        if (props.place === 1) {
             return styles.firstPlace;
         }
 
-        if (props.index === 1) {
-            return styles.secondPlace
+        if (props.place === 2) {
+            return styles.secondPlace;
         }
 
-        if (props.index === 2) {
+        if (props.place === 3) {
             return styles.thirdPlace;
         }
 
-        return styles.place;
+        return styles.root;
     }
 
     return (
-        <div className={styles.root}>
-            <span className={getPlaceStyle()}>{props.index + 1}</span>
+        <div className={getRootStyle()}>
+            <span className={styles.place}>{props.place}</span>
             <LabeledValue label={`Player ${props.playerNumber}`} value={props.playerName} />
             <span className={styles.totalScore}>{props.totalScore} pts</span>
         </div>

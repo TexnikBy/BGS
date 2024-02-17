@@ -1,6 +1,8 @@
-﻿namespace BGS.Games.TyrantsOfTheUnderdark;
+﻿using BGS.Games.Shared.Interfaces;
 
-internal record TyrantsOfTheUnderdarkScoringModel
+namespace BGS.Games.TyrantsOfTheUnderdark;
+
+public record TyrantsOfTheUnderdarkScoringModel : IGameScoringModel<TyrantsOfTheUnderdarkScoringModel>
 {
     public byte ControlSitesScore { get; init; }
     
@@ -13,4 +15,17 @@ internal record TyrantsOfTheUnderdarkScoringModel
     public byte InnerCircleDeckValueScore { get; init; }
     
     public byte VictoryPointTokensScore { get; init; }
+
+    public int TotalScore => ControlSitesScore +
+                             TotalControlSitesScore * 2 +
+                             TroopsTrophyHallScore +
+                             DeckValueScore +
+                             InnerCircleDeckValueScore +
+                             VictoryPointTokensScore;
+    
+    
+    public int CompareTo(TyrantsOfTheUnderdarkScoringModel other)
+    {
+        return TotalScore - other.TotalScore;
+    }
 }

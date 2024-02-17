@@ -21,7 +21,7 @@ export const GameCard = (props: Props) => {
             <div className={styles.overlay} />
             <div className={styles.content}>
                 <h5>2-4 players</h5>
-                <h2 className={styles.gameName}>{props.name}</h2>
+                <div className={styles.gameName}>{props.name}</div>
             </div>
         </Card>
     );

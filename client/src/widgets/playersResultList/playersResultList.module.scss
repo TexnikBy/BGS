@@ -2,21 +2,4 @@
     > * {
         margin-bottom: 16px;
     }
-
-    > :first-child {
-        border-bottom-color: #F0BE0C;
-    }
-
-    > :nth-child(2) {
-        border-bottom-color: #BCB393;
-    }
-
-    > :nth-child(3) {
-        border-bottom-color: #B54B29;
-    }
-
-    > :nth-child(-n+3) {
-        border-bottom-width: 2px;
-        border-bottom-style: solid;
-    }
 }

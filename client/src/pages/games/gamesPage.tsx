@@ -1,6 +1,6 @@
 ﻿import styles from "./gamesPage.module.scss";
 import { PageLayout } from "@shared/ui";
-import { GameList } from "@/widgets/gameList/gameList.tsx";
+import { GameList } from "@widgets/gameList/gameList.tsx";
 import { useEffect, useState } from "react";
 import { GameListItem, getGames } from "@shared/api";
 import classNames from "classnames";
